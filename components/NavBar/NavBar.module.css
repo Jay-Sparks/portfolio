@@ -1,17 +1,19 @@
 .NavBar{
-    width: 16rem;
+    width: 14.4rem;
     background-color: aliceblue;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    border-right: solid 0.12rem #c0c0c0;
+    border-right: solid 0.12rem rgba(189, 189, 189, 0.456);
+    background-color: var(--background-color);
+    transition: background-color 0.25s ease-in-out;
 }
 
 .navLinks{
     /* display: flex;
     flex-direction: column; */
     min-width: 6rem;
-    margin: 4rem 0;
+    margin: 3rem 0;
 }
 
 .glance {
@@ -21,12 +23,14 @@
     font-size: 1.1rem;
     cursor: pointer;
     /* z-index: 1; */
-    margin: 0 0 0 3rem;
+    margin: 0 0 0 2rem;
+    text-align: center;
     /* box-shadow: 2px 2px 8px #c0c0c0; */
   }
 
+
   .lightShine {
-    background: linear-gradient(to right, hsl(0, 0%, 30%) 0, hsl(0, 0%, 100%) 10%, hsl(0, 0%, 30%) 80%);
+    background: linear-gradient(to right, hsl(0, 0%, 30%) 0, hsl(0, 0%, 100%) 10%, hsl(0, 0%, 30%) 30%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shine 12s linear;
@@ -35,11 +39,9 @@
   }
 
   .trailsText {
-    /* width: 100%; */
     height: 20rem;
     color: black;
     will-change: transform, opacity;
-    /* overflow: hidden; */
   }
 
   .topLinks{
@@ -47,13 +49,14 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: start;
-    padding: 1rem 3rem;
-    border-bottom: solid 0.12rem #c0c0c0;
+    padding: 1rem 2rem;
+    border-bottom: solid 0.12rem rgba(189, 189, 189, 0.456);
   }
 
   .topLinks a{
     margin: .5rem 0;
     cursor: pointer;
+    color: var(--secondary-text-color);
   }
 
   .botLinks{
@@ -61,20 +64,21 @@
     flex-direction: column;
     align-items: start;
     text-align: left;
-    padding: 1rem 3rem;
-    border-bottom: solid 0.12rem #c0c0c0;
+    padding: 1rem 2rem;
+    border-bottom: solid 0.12rem rgba(189, 189, 189, 0.456)
+    /* height: 8rem; */
   }
 
   .botLinks a{
     width: 12rem;
-    color: #000;
+    color: var(--secondary-text-color);
     font-size: 0.8rem;
-    letter-spacing: .2rem;
+    letter-spacing: .15rem;
     cursor: pointer;
   }
 
   .botLinks p{
-    color: #8c8c8c;
+    color: var(--primary-text-color);
     font-size: 0.75rem;
     letter-spacing: .2rem;
     margin-block-start: 0;
@@ -89,12 +93,16 @@
   
   .innerLinks a{
     cursor: pointer;
-    margin: 0 2rem;
+    margin: .2rem 1.5rem;
     text-align: left;
   }
 
   .projects{
-    margin: .5rem 0;
+    width: 100%;
+  }
+
+  .projects p {
+    margin: 1rem 0;
   }
   
   @keyframes fadeIn {
