@@ -3,6 +3,7 @@ import './App.css'
 import NavBar from '../components/NavBar/NavBar'
 import Toggle from '../components/Toggle/Toggle'
 import Experience from '../views/Experience/Experience'
+import Projects from '../views/Projects/Projects'
 
 export const App = () => {
   const [ isDark, setIsDark ] = useState(false)
@@ -16,6 +17,7 @@ export const App = () => {
           handleChange={() => {setIsDark(!isDark)}}
         />
         <Experience isDark={isDark}/>
+        <Projects />
       </section>
     </div>
   )

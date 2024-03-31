@@ -1,4 +1,6 @@
-
+.Experience{
+  height: 100vh;
+}
 
 h1 {
     font-size: 3rem;
@@ -6,7 +8,19 @@ h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     position: absolute;
-    bottom: 20vh;
-    left: 20vw;
+    top: 8rem;
+    left: 18rem;
     width: 80%;
   }
+
+
+h2 {
+  font-size: 3rem;
+  background: -webkit-linear-gradient(0.0625turn, #c7c7c7, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: absolute;
+  top: 12rem;
+  left: 18rem;
+  width: 80%;
+}
