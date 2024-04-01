@@ -10,7 +10,9 @@ export const App = () => {
 
   return (
     <div className="App" data-theme={isDark ? "dark" : "light"}>
-      <NavBar />
+      <div className="sideBar">
+        <NavBar />
+      </div>
       <section className='views'>
         <Toggle 
           isChecked={isDark}

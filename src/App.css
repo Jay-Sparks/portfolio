@@ -9,4 +9,11 @@
 
 .views{
   width: 100%;
+  overflow: hidden;
+}
+
+.sideBar{
+  width: 14.5rem;
+  z-index: 100;
+  background-color: var(--background-color);
 }

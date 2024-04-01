@@ -10,7 +10,7 @@ import NameText from '../../components/NameText/NameText';
 import Ocean from '../../components/Ocean/Ocean'
 
 function Experience({isDark}) {
-    const [ sunPosition, setSunPosition ] = useState([1, 2, 3])
+    const [ sunPosition, setSunPosition ] = useState([100, 10, -250])
     // const { sunPosition } = useControls('sky', {
     //     sunPosition: { value: positionSun },
     //   });
@@ -33,7 +33,7 @@ function Experience({isDark}) {
         <div className={styles.Experience}>
             <Canvas camera={{ fov: 65, position: [0, 5, 20] }}>
                 <EffectComposer disableNormalPass>
-                    <Vignette />
+                    <Vignette darkness={0.5}/>
 
                     <Sky 
                         sunPosition={[100, 10, -250]} 
@@ -85,7 +85,8 @@ function Experience({isDark}) {
                         enableZoom={false}
                         
                     />
-                    <NameText />
+                    <NameText content={`Jay Spencer`} positionY={3}/>
+                    <NameText content={`Creative Developer`} positionY={1.5}/>
 
                     <mesh receiveShadow position={ [100, 1, 100] } >
                         <boxGeometry args={ [ 10, 0.5, 10 ] } />
@@ -94,8 +95,7 @@ function Experience({isDark}) {
                     <Ocean />
                 </EffectComposer>
             </Canvas>
-            <h1>J.Spencer</h1>
-            <h2>Creative Web Developer</h2>
+            <h1>/jayspencer</h1>
         </div>
     )
 }
