@@ -61,10 +61,11 @@ function NavBar() {
                     <animated.div className={styles.projects}>
                         <animated.p>PROJECTS</animated.p>
                         <animated.div className={styles.innerLinks}>
-                            <animated.a>Artico</animated.a>
-                            <animated.a>3D Island</animated.a>
-                            <animated.a>3D t-shirt</animated.a>
-                            <animated.a>Waste Not</animated.a>
+                            <animated.a href='https://city-zen.netlify.app/'>City Zen</animated.a>
+                            <animated.a href='https://artico-app-js.netlify.app/'>Artico</animated.a>
+                            <animated.a href='https://threejs-tshirt-ai.netlify.app/'>3D Island</animated.a>
+                            <animated.a href='https://threejs-tshirt-ai.netlify.app/'>3D t-shirt</animated.a>
+                            <animated.a href='https://waste-not-js.netlify.app/'>Waste Not</animated.a>
                         </animated.div>
                     </animated.div>
                 </animated.div>
@@ -82,8 +83,8 @@ function NavBar() {
                     <animated.div className={styles.projects}>
                         <animated.p>CONTACT</animated.p>
                         <animated.div className={styles.innerLinks}>
-                            <animated.a>LinkedIn</animated.a>
-                            <animated.a>GitHub</animated.a>
+                            <animated.a href='https://www.linkedin.com/in/jay-spencer-55675792/'>LinkedIn</animated.a>
+                            <animated.a href='https://github.com/Jay-Sparks'>GitHub</animated.a>
                             <animated.a>Email</animated.a>
                         </animated.div>
                     </animated.div>

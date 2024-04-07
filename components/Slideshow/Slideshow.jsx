@@ -16,7 +16,7 @@ const Main = styled.div`
   
   const Content = styled.div`
   scroll-snap-align: start;
-    width: 20rem;
+    width: 26rem;
   margin: 0 2rem;
   height: 100%;
   display: flex;

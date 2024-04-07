@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import * as THREE from 'three'
-import {OrbitControls, Sky, Sparkles, Sphere, Shadow, Billboard, Cloud, Clouds, Text3D, Center} from '@react-three/drei'
+import {OrbitControls, Sky, Sparkles, Sphere, Shadow, Billboard, Cloud, Clouds, Text3D, Center, Stars} from '@react-three/drei'
 import { EffectComposer, Vignette } from '@react-three/postprocessing'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Leva, useControls } from 'leva';
@@ -24,8 +24,8 @@ function Experience({isDark}) {
     const Moon = ({ size = 1, amount = 50, color = 'white', emissive, glow, ...props }) => (
         <mesh {...props}>
           <sphereGeometry args={[size, 64, 64]} />
-          <meshPhysicalMaterial roughness={0} color={color} emissive={emissive || color} envMapIntensity={0.2} />
-          <Sparkles count={amount} scale={size * 8} size={6} speed={0.4} />
+          <meshPhysicalMaterial roughness={5} color={color} emissive={emissive || color} envMapIntensity={0.2} />
+          <Sparkles count={amount} scale={size * 10} size={6} speed={0.4} />
         </mesh>
       )
 
@@ -47,13 +47,31 @@ function Experience({isDark}) {
                     />
                     {isDark ? 
                     <>
+                        <Stars
+                            radius={100} 
+                            depth={50} 
+                            count={5000} 
+                            factor={4} 
+                            saturation={1} 
+                            fade 
+                            speed={1}
+                        />
                         <hemisphereLight intensity={0.5} color="#c7c7c7" groundColor="black" />
-                        {/* <Moon color="white" amount={20} emissive="grey" size={0.8} position={[-3, 10, -2]} /> */}
-                        <Sparkles count={60} scale={10 * 4} size={5.5} speed={0.4} position={[10,5,-2]}/>
-                        <Sparkles count={60} scale={10 * 3} size={5} speed={0.4} position={[-10,5,-2]}/>
+                        <Moon color="purple" amount={0} emissive="black" size={0.8} position={[20, 45, -200]} />
+                        <Moon color="blue" amount={3} emissive="black" size={1} position={[-90, 30, -230]} />
+                        <Moon color="white" amount={0} emissive="black" size={1.1} position={[-120, 60, -120]} />
+                        <Moon color="cyan" amount={6} emissive="black" size={2} position={[-150, 30, 150]} />
+                        <Moon color="#D42B07" amount={0} emissive="black" size={0.8} position={[-250, 60, 30]} />
+                        <Moon color="#CEB32A" amount={10} emissive="black" size={2.8} position={[180, 152, 350]} />
+                        <Moon color="white" amount={0} emissive="black" size={1.1} position={[120, 60, -120]} />
+                        <Moon color="red" amount={20} emissive="grey" size={10} position={[850, 1, 10]} />
+                        <Moon color="black" amount={0} emissive="#D7D59D" size={1.1} position={[250, 60, 180]} />
+                        {/* <Sparkles count={60} scale={10 * 4} size={5.5} speed={0.4} position={[10,5,-2]}/>
+                        <Sparkles count={60} scale={10 * 3} size={5} speed={0.4} position={[-10,5,-2]}/> */}
                         <Clouds material={THREE.MeshBasicMaterial}>
-                            <Cloud seed={1} scale={1} volume={3} color="#c7c7c7" fade={100} position={[14, 10, -14]} />
-                            <Cloud seed={1} scale={1} volume={3} color="white" fade={100} position={[-4, 10, -4]} />
+                            <Cloud seed={1} scale={1} volume={3} color="#c7c7c7" fade={100} position={[80, 30, -14]} />
+                            <Cloud seed={1} scale={1} volume={3} color="white" fade={100} position={[-11, 18, -40]} />
+                            <Cloud seed={1} scale={1} volume={3} color="white" fade={100} position={[11, 18, -32]} />
                         </Clouds>
                     </>
                         :
