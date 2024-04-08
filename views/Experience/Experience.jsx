@@ -31,6 +31,11 @@ function Experience({isDark}) {
 
     return (
         <div className={styles.Experience}>
+            <div className={styles.scrollDowns}>
+                <div className={styles.mousey}>
+                    <div className={styles.scroller}></div>
+                </div>
+            </div>
             <Canvas camera={{ fov: 65, position: [0, 5, 20] }}>
                 <EffectComposer disableNormalPass>
                     <Vignette darkness={0.5}/>

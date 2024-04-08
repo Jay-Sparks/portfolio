@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom";
 
 // import { animated, useSpring } from '@react-spring/web'
 import styles from "../NavBar/NavBar.module.css"
@@ -29,11 +30,12 @@ function NavBar() {
             }
         , 1800)
     }, [])
+    
 
     return (
     <div className={styles.NavBar}>
         <div className={styles.navLinks}>
-            <a>
+            <animated.a href="#" className={styles.removeA}>
                 <animated.div
                     onMouseEnter={() => {
                         set.start({ x: 10, color: "var(--secondary-text-color)", background: "var(--primary-button-background-dark)", config: { mass: 10, tension: 2500, friction: 400 } })
@@ -50,12 +52,12 @@ function NavBar() {
                         {isHovered ? <p className={styles.lightShine}>Jay Spencer</p> : ".JS"}
                     </animated.span>
                 </animated.div>
-            </a>
+            </animated.a>
             <NavLinks>
                 <animated.div className={styles.topLinks}>
-                    <animated.a>About</animated.a>
-                    <animated.a>Experiments</animated.a>
-                    <animated.a>CV</animated.a>
+                    <animated.div className={styles.topLinkWrapper}><Link to={`about`} className={styles.topLinksLink}>About</Link></animated.div>
+                    <animated.div className={styles.topLinkWrapper}><Link to={`experiments`} className={styles.topLinksLink}>Experiments</Link></animated.div>
+                    <animated.div className={styles.topLinkWrapper}><Link to={`cv`} className={styles.topLinksLink}>CV</Link></animated.div>
                 </animated.div>
                 <animated.div className={styles.botLinks}>
                     <animated.div className={styles.projects}>
@@ -70,22 +72,13 @@ function NavBar() {
                     </animated.div>
                 </animated.div>
                 <animated.div className={styles.botLinks}>
-                <animated.div className={styles.projects}>
-                    <animated.p>EXPERIENCE</animated.p>
-                    <animated.div className={styles.innerLinks}>
-                        <animated.a>Software</animated.a>   
-                        <animated.a>Product</animated.a>
-                        <animated.a>Agile</animated.a>
-                    </animated.div>
-                </animated.div>
-                    </animated.div>
-                <animated.div className={styles.botLinks}>
                     <animated.div className={styles.projects}>
                         <animated.p>CONTACT</animated.p>
                         <animated.div className={styles.innerLinks}>
                             <animated.a href='https://www.linkedin.com/in/jay-spencer-55675792/'>LinkedIn</animated.a>
                             <animated.a href='https://github.com/Jay-Sparks'>GitHub</animated.a>
-                            <animated.a>Email</animated.a>
+                            <button onClick={() => window.location = 'mailto:jay_sparks@icloud.com'}>Email</button>
+                            
                         </animated.div>
                     </animated.div>
                 </animated.div>

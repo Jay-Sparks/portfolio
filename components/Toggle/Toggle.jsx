@@ -10,7 +10,7 @@ function Toggle({ handleChange, isChecked }) {
             onChange={handleChange}
             checked={isChecked}
         />
-        <label htmlFor="check">Dark Mode</label>
+        <label htmlFor="check">{isChecked ? 'Light Mode' : 'Dark Mode' }</label>
     </div>
   )
 }

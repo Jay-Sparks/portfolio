@@ -1,7 +1,7 @@
 {
-  "name": "portfolio24",
+  "name": "Jay-Spencer",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -16,6 +16,7 @@
     "@use-gesture/react": "^10.3.1",
     "leva": "^0.9.35",
     "react": "^18.2.0",
+    "react-router-dom": "^6.22.3",
     "react-spring": "^9.7.3",
     "styled-components": "^6.1.8",
     "three": "^0.163.0"

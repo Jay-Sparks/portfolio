@@ -1,9 +1,11 @@
 import { useState } from 'react'
-import './App.css'
+
 import NavBar from '../components/NavBar/NavBar'
 import Toggle from '../components/Toggle/Toggle'
 import Experience from '../views/Experience/Experience'
 import Projects from '../views/Projects/Projects'
+
+import './App.css'
 
 export const App = () => {
   const [ isDark, setIsDark ] = useState(false)

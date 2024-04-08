@@ -5,7 +5,7 @@ import { a } from 'react-spring'
 import items from './Items.jsx'
 
 const Main = styled.div`
-  height: 600px;
+  height: 850px;
   white-space: nowrap;
   display: flex;
   transform-origin: center center;
@@ -16,7 +16,7 @@ const Main = styled.div`
   
   const Content = styled.div`
   scroll-snap-align: start;
-    width: 26rem;
+  width: 35rem;
   margin: 0 2rem;
   height: 100%;
   display: flex;
@@ -25,43 +25,63 @@ const Main = styled.div`
 `
 
 const Marker = styled.div`
-  color: black;
+  color: var(--secondary-text-color);
   left: 140px;
-  font-family: monospace;
+  // font-family: monospace;
+  margin: 1rem 0;
 `
 
 const Image = styled.a`
-  width: 100%;
-  height: 100%;
+  height: 40%;
   background-size: cover;
-  background-position: center center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 35rem 350px;
   cursor: pointer;
+  box-shadow: inset 0px 0px 50px rgba(0,0,0,0.4);
+`
+
+const ProjectTitle = styled.h2`
+  color: var(--secondary-text-color);
+  position: unset;
+  font-size: 1.2rem;
+  margin: 2rem 0;
+  -webkit-text-fill-color: unset;
+  background: unset;
+  -webkit-background-clip: unset;
+`
+
+const Description = styled.p`
+  width: 100%;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  white-space: wrap;
+  line-height: 1.5rem;
+  color: var(--secondary-text-color);
+`
+
+const BuiltUsing = styled.p`
+  width: 100%;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  white-space: wrap;
+  margin: 2rem 0;
+  line-height: 1.5rem;
+  color: var(--secondary-text-color);
 `
 
 function Slideshow() {
   return (
     <Main>
         {items.map((item, index) => {
-            return <Content key={index}>
-                    <Marker>{index}</Marker>
-                    <Image style={{ backgroundImage: item.css }}/>
-                </Content>
+          return <Content key={index}>
+                  <Marker>{index + 1}{": " + item.blurb}</Marker>
+                  <Image style={{ backgroundImage: item.css }} href={item.url}/>
+                  <ProjectTitle>{item.title}</ProjectTitle>
+                  <Description>{item.description}</Description>
+                  <BuiltUsing>{item.tools}</BuiltUsing>
+              </Content>
         })}
-    {/* </Content> */}
-      {/* {({ css }, i) => (
-        <Content>
-          <Marker>{String(i).padStart(2, '0')}</Marker>
-          <Image style={{ backgroundImage: css }} />
-        </Content>
-      )} */}
-    {/* <div items={items} width={700} visible={3}>
-      {({ css }, i) => (
-        <Content>
-          <Marker>{String(i).padStart(2, '0')}</Marker>
-          <Image style={{ backgroundImage: css }} />
-        </Content>
-      )}
-    </div> */}
   </Main>
   )
 }

@@ -13,17 +13,18 @@
   --secondary-text-color: #000;
   --toggle-bg: #f0eb9d;
   --toggle-fg: #ffd000;
-  --primary-button-background: rgba(189, 189, 189, 0.456);
+  --primary-button-background: rgba(189, 189, 189, 0.466);
   --primary-button-background-dark: #000;
+  scroll-behavior: smooth;
 }
 
 [data-theme="dark"] {
   --background-color: #0a0a0a;
-  --foreground-color: #567aff;
-  --primary-text-color: #567aff;
+  --foreground-color: #9E3DFF;
+  --primary-text-color: #9E3DFF;
   --secondary-text-color: #ffffff;
   --toggle-bg: #283452;
-  --toggle-fg: #00a6ff;
+  --toggle-fg: #9E3DFF;
   --primary-button-background: rgba(189, 189, 189, 0.456);
   --primary-button-background-dark: #f5f5f5;
 }
