@@ -1,17 +1,28 @@
 .NavBar{
-    width: 16rem;
-    background-color: aliceblue;
-    height: 100vh;
+    width: 14.5rem;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    border-right: solid 0.12rem #c0c0c0;
-}
-
-.navLinks{
+    border-right: solid 0.12rem rgba(189, 189, 189, 0.456);
+    background-color: var(--background-color);
+    transition: background-color 0.25s ease-in-out;
+    /* z-index: 99; */
+  }
+  
+  .navLinks{
     /* display: flex;
     flex-direction: column; */
+    /* background-color: var(--background-color); */
+    /* border-right: solid 0.12rem rgba(189, 189, 189, 0.456); */
     min-width: 6rem;
-    margin: 4rem 0;
+    width: 14.5rem;
+    margin: 3rem 0;
+    position: fixed;
+}
+
+
+.removeA{
+  all: unset;
 }
 
 .glance {
@@ -20,26 +31,26 @@
     line-height: 2.5rem;
     font-size: 1.1rem;
     cursor: pointer;
+    margin: 0 0 0 2rem;
+    text-align: center;
     /* z-index: 1; */
-    margin: 0 0 0 3rem;
     /* box-shadow: 2px 2px 8px #c0c0c0; */
   }
 
+
   .lightShine {
-    background: linear-gradient(to right, hsl(0, 0%, 30%) 0, hsl(0, 0%, 100%) 10%, hsl(0, 0%, 30%) 80%);
+    background: linear-gradient(to right, hsl(0, 0%, 30%) 0, hsl(0, 0%, 100%) 10%, hsl(0, 0%, 30%) 30%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: shine 12s linear;
+    animation: shine 10s linear;
     margin-block-start: 0;
     margin-block-end: 0;
   }
 
   .trailsText {
-    /* width: 100%; */
     height: 20rem;
     color: black;
     will-change: transform, opacity;
-    /* overflow: hidden; */
   }
 
   .topLinks{
@@ -47,13 +58,47 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: start;
-    padding: 1rem 3rem;
-    border-bottom: solid 0.12rem #c0c0c0;
+    padding: 1rem 2rem;
+    margin-right: 0.8rem;
+    border-bottom: solid 0.12rem rgba(189, 189, 189, 0.456);
   }
 
-  .topLinks a{
-    margin: .5rem 0;
+  .topLinkWrapper{
+    width: 100%;
+    border-radius: 0.25rem;
+  }
+  
+  .topLinkWrapper a{
+    border-radius: 0.25rem;
+    padding: 0.5rem 0.25rem;
+  }
+
+  .topLinksLink{
+    display: block;
+    text-decoration: none;
+    width: 100%;
     cursor: pointer;
+    color: var(--secondary-text-color);
+  }
+
+  .topLinksCurr{
+    display: block;
+    text-decoration: none;
+    width: 100%;
+    cursor: pointer;
+    color: var(--secondary-text-color);
+    background-color: var(--primary-button-background);
+  }
+
+  .topLinkWrapper:hover{
+    background-color: var(--primary-button-background);
+    transition: background-color 0.02s ease-in-out;
+  }
+
+  .topLinkWrapper a:active{
+    background-color: rgb(0, 0, 0, 0.8);
+    color: white;
+    transition: background-color 0.2s ease-in-out; 
   }
 
   .botLinks{
@@ -61,20 +106,35 @@
     flex-direction: column;
     align-items: start;
     text-align: left;
-    padding: 1rem 3rem;
-    border-bottom: solid 0.12rem #c0c0c0;
+    padding: 1rem 2rem;
+    margin-right: 0.8rem;
+    border-bottom: solid 0.12rem rgba(189, 189, 189, 0.456)
+    /* height: 8rem; */
   }
 
   .botLinks a{
-    width: 12rem;
-    color: #000;
+    width: 100%;
+    color: var(--secondary-text-color);
     font-size: 0.8rem;
-    letter-spacing: .2rem;
+    letter-spacing: .15rem;
     cursor: pointer;
+    text-decoration: none;
+    border-radius: 0.2rem;
+  }
+
+  .botLinks a:hover{
+    background-color: var(--primary-button-background);
+    transition: background-color 0.02s ease-in-out; 
+  }
+
+  .botLinks a:active{
+    background-color: rgb(0, 0, 0, 0.8);
+    color: white;
+    transition: background-color 0.2s ease-in-out; 
   }
 
   .botLinks p{
-    color: #8c8c8c;
+    color: var(--primary-text-color);
     font-size: 0.75rem;
     letter-spacing: .2rem;
     margin-block-start: 0;
@@ -88,14 +148,42 @@
   }
   
   .innerLinks a{
-    cursor: pointer;
-    margin: 0 2rem;
+    padding: .5rem 1.5rem;
     text-align: left;
   }
 
   .projects{
-    margin: .5rem 0;
+    width: 100%;
   }
+
+  .projects p {
+    padding: 0 .2rem .5rem .2rem;
+  }
+
+  .projects button{
+    all: unset;
+    padding: .5rem 1.5rem;
+    text-align: left;
+    width: 70%;
+    color: var(--secondary-text-color);
+    font-size: 0.8rem;
+    letter-spacing: .15rem;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 0.2rem;
+  }
+
+  .projects button:hover{
+    background-color: var(--primary-button-background);
+    transition: background-color 0.02s ease-in-out; 
+  }
+
+  .projects button:active{
+    background-color: rgb(0, 0, 0, 0.8);
+    color: white;
+    transition: background-color 0.2s ease-in-out; 
+  }
+
   
   @keyframes fadeIn {
     0% { opacity: 0; }
@@ -113,3 +201,5 @@
       background-position: 600px;
     }
   }
+
+

@@ -1,22 +1,30 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 500;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: aliceblue;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  /* text-align: center; */
 }
 
-body {
-  margin: 0;
-  display: flex;
-  /* place-items: center; */
-  min-width: 320px;
-  min-height: 100vh;
+:root {
+  --background-color: #f6f6f6;
+  --foreground-color: #000;
+  --primary-text-color: #8c8c8c;
+  --secondary-text-color: #000;
+  --toggle-bg: #f0eb9d;
+  --toggle-fg: #ffd000;
+  --primary-button-background: rgba(189, 189, 189, 0.466);
+  --primary-button-background-dark: #000;
+  scroll-behavior: smooth;
+}
+
+[data-theme="dark"] {
+  --background-color: #0a0a0a;
+  --foreground-color: #9E3DFF;
+  --primary-text-color: #9E3DFF;
+  --secondary-text-color: #ffffff;
+  --toggle-bg: #283452;
+  --toggle-fg: #9E3DFF;
+  --primary-button-background: rgba(189, 189, 189, 0.456);
+  --primary-button-background-dark: #f5f5f5;
 }

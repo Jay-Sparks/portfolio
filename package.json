@@ -1,7 +1,7 @@
 {
-  "name": "portfolio24",
+  "name": "Jay-Spencer",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,9 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@react-spring/web": "^9.7.3",
+    "@react-three/drei": "^9.103.0",
+    "@react-three/fiber": "^8.16.1",
+    "@react-three/postprocessing": "^2.16.2",
+    "@use-gesture/react": "^10.3.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-icons": "^5.0.1",
+    "react-router-dom": "^6.22.3",
+    "react-spring": "^9.7.3",
+    "styled-components": "^6.1.8",
+    "three": "^0.163.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

@@ -1,4 +1,53 @@
-#root {
-  max-width: 1280px;
-  text-align: center;
+.App {
+  width: 100vw;
+
+  background-color: var(--background-color);
+  transition: background-color 0.25s ease-in-out;
+  display: flex;
+
+}
+
+.views{
+  width: 100%;
+  overflow: hidden;
+}
+
+.sideBar{
+  width: 14.5rem;
+  z-index: 100;
+  background-color: var(--background-color);
+}
+
+.sideBar1{
+  width: 60vw;
+  background-color: var(--background-color);
+}
+
+.menu{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position:absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  z-index: 99;
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;
+  border: none;
+}
+
+.menuIcon{
+  width: 2rem;
+  height: 2rem;
+}
+
+
+@media (max-width: 600px) { 
+  .sideBar {
+    display: none;
+  }
+  .menu{
+    display: flex;
+  }
 }

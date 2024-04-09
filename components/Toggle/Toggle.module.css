@@ -1,0 +1,77 @@
+.toggleContainer{
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    z-index: 2;
+}
+
+.toggle {
+    visibility: hidden;
+  }
+  
+  .toggle + label {
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: var(--secondary-text-color);
+  }
+  
+  .toggle + label::before {
+    content: "";
+    border: solid 1.5px grey;
+    height: 1.75rem;
+    width: 3rem;
+    border-radius: 1em;
+    background-color: var(--toggle-bg);
+    margin-right: 0.5em;
+    transition: background-color 250ms ease-in-out;
+  }
+
+.toggle + label::after {
+    content: "";
+    height: 1.2rem;
+    width: 1.2rem;
+    border-radius: 1rem;
+    background-color: var(--toggle-fg);
+    position: absolute;
+    left: 0.35rem;
+    transition: background-color 250ms ease-in-out, transform 250ms ease-in-out;
+  }
+
+.toggle:checked + label::after{
+    transform: translateX(100%);
+}
+
+@media (max-width: 600px) { 
+  .toggleContainer{
+    top: .5rem;
+    right: 1rem;
+  }
+  .toggle + label{
+    font-size: 1rem;;
+  }
+  .toggle + label::before{
+    height: 1.5rem;
+    width: 2.5rem;
+  }
+  .toggle + label::after{
+    height: 1rem;
+    width: 1rem;
+  }
+}
+
+@media (orientation: landscape) and (max-width: 768px) { 
+  .toggleContainer{
+    top: .5rem;
+    right: 1rem;
+  }
+  .toggle + label{
+    font-size: 1rem;;
+  }
+  .toggle + label::before{
+    height: 1.5rem;
+    width: 2.5rem;
+  }
+  
+}
