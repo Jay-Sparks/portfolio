@@ -8,6 +8,8 @@ import Experience from '../views/Experience/Experience'
 import Projects from '../components/Projects/Projects'
 
 import './App.css'
+import Menu from '../Menu/Menu';
+import Home from '../views/Home/Home';
 
 export const App = () => {
   const [ isDark, setIsDark ] = useState(false)
@@ -17,26 +19,8 @@ export const App = () => {
 
   return (
     <div className="App" data-theme={isDark ? "dark" : "light"}>
-      <button className="menu" onClick={() => setIsMenu(curr => !curr)}>
-        <CgMenuLeft className="menuIcon" />
-      </button>
-      {isMenu ? 
-        <div className="sideBar1">
-          <NavBar />
-        </div>
-      : null}
-
-      <div className="sideBar">
-        <NavBar />
-      </div>
-      <section className='views'>
-        <Toggle 
-          isChecked={isDark}
-          handleChange={() => {setIsDark(!isDark)}}
-        />
-        <Experience isDark={isDark}/>
-        <Projects />
-      </section>
+      <Menu isMenu={isMenu} setIsMenu={setIsMenu}/>
+      <Home isDark={isDark} setIsDark={setIsDark}/>
     </div>
   )
 }

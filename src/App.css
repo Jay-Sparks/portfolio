@@ -7,21 +7,6 @@
 
 }
 
-.views{
-  width: 100%;
-  overflow: hidden;
-}
-
-.sideBar{
-  width: 14.5rem;
-  z-index: 100;
-  background-color: var(--background-color);
-}
-
-.sideBar1{
-  width: 60vw;
-  background-color: var(--background-color);
-}
 
 .menu{
   display: none;
@@ -44,9 +29,6 @@
 
 
 @media (max-width: 600px) { 
-  .sideBar {
-    display: none;
-  }
   .menu{
     display: flex;
   }

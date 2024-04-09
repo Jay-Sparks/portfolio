@@ -57,14 +57,22 @@ z-index: -2;
   .NavBar {
     display: none;
   }
-  .toggleButton {
-    display: flex;
+  .Projects{
+    width: 90vw;
   }
-}
-
-@media (max-width: 768px) { 
-  .NavBar {
-    display: none;
+  .projectsWrapper h2{
+    margin: 1rem 1rem;
+  }
+  .Projects a{
+    width: 90vw;
+  }
+  .Projects p{
+    width: 90vw;
+    margin: 0;
+    height: auto;
+  }
+  .Projects h2{
+    margin: 0;
   }
   .toggleButton {
     display: flex;
