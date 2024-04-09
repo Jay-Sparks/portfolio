@@ -1,5 +1,37 @@
+.Cv{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+
 .sideBar {
     width: 14.5rem;
-    height: 100vh;
+    /* height: 100%; */
     background-color: var(--background-color);
+}
+
+.cvContent{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem;
+    overflow-y: scroll;
+}
+
+.cvContent p{
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin: 0.5rem 0;
+    text-align: left;
+    width: 100%;
+    line-height: 1.4rem;
+}
+
+.cvContent h2{
+    position: static;
+    width: 100%;
+    font-size: 2rem;
+    margin: .5rem 0;
 }

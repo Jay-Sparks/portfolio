@@ -6,9 +6,7 @@
     border-right: solid 0.12rem rgba(189, 189, 189, 0.456);
     background-color: var(--background-color);
     transition: background-color 0.25s ease-in-out;
-    /* z-index: 99;
-    position: fixed;
-    top: 0; */
+    /* z-index: 99; */
   }
   
   .navLinks{
@@ -81,6 +79,15 @@
     width: 100%;
     cursor: pointer;
     color: var(--secondary-text-color);
+  }
+
+  .topLinksCurr{
+    display: block;
+    text-decoration: none;
+    width: 100%;
+    cursor: pointer;
+    color: var(--secondary-text-color);
+    background-color: var(--primary-button-background);
   }
 
   .topLinkWrapper:hover{
@@ -194,3 +201,5 @@
       background-position: 600px;
     }
   }
+
+
