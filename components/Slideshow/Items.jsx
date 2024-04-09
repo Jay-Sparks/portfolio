@@ -32,7 +32,7 @@ export default [
       height: 300,
       blurb: "Interactive 3D AI app",
       title: "mAI t-shirts",
-      description: "A R3F and three.js web app built using openAIs dalle api to power logo and print designs for a t-shirt model, with a focus upon 3d interaction",
+      description: "A R3F and three.js web app built using openAIs dalle api to power logo and print designs for a t-shirt model, with a focus upon 3d interaction and 3rd party api integration.",
       tools: "React, three.js, react-three-fiber, Drei, Express,openA",
       github: ['https://github.com/Jay-Sparks/threejs_ai_tshirts'],
       url: 'https://threejs-tshirt-ai.netlify.app/'
@@ -42,7 +42,7 @@ export default [
       height: 300,
       blurb: "Single page 3D app",
       title: "Flying Island",
-      description: "A R3F and three.js single page project built to learn and demonstrate 3D techniques and animations.",
+      description: "A R3F and three.js single page project built to learn and demonstrate 3D interactions, 3D asset imports and physics.",
       tools: "React, three.js, react-three-fiber, Drei, Tailwind",
       github: ['https://github.com/Jay-Sparks/threejs-island/tree/master' ],
       url: 'https://threejs-island.netlify.app/'
@@ -51,8 +51,8 @@ export default [
       css: `url(${WasteNotImg})`,
       height: 300,
       blurb: "Authenticated web app",
-      title: "Flying Island",
-      description: "A responsive c.r.u.d web app that allows users to save a set of possible recipes they could cook, based upon the food they have in their kitchen.",
+      title: "Waste not",
+      description: "A responsive c.r.u.d web app that allows users to save a set of possible recipes they could cook. Users can login using their google email or email & password, provide the food currently in their kitchen and save favourite recipes to their account.",
       tools: "React, Node, Ajax & Firebase",
       github: ['https://github.com/Jay-Sparks/waste-not' ],
       url: 'https://waste-not-js.netlify.app/'

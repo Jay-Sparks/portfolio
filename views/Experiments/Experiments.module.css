@@ -1,0 +1,9 @@
+.Experiments{
+    display: flex;
+}
+
+.sideBar {
+    width: 14.5rem;
+    height: 100vh;
+    background-color: var(--background-color);
+}

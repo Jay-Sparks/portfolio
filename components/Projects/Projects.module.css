@@ -1,13 +1,15 @@
 .projectsWrapper{
   height: 100vh;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .Projects{
     align-items: center;
     display: flex;
     width: 80%;
-    height: 100%;
+    height: 60rem;
     margin: auto;
     overflow-x: auto;
     scroll-snap-type: x mandatory;

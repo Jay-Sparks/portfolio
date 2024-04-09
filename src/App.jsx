@@ -3,7 +3,7 @@ import { useState } from 'react'
 import NavBar from '../components/NavBar/NavBar'
 import Toggle from '../components/Toggle/Toggle'
 import Experience from '../views/Experience/Experience'
-import Projects from '../views/Projects/Projects'
+import Projects from '../components/Projects/Projects'
 
 import './App.css'
 

@@ -20,3 +20,9 @@
 .errorPage p {
     margin: 2rem 0;
 }
+
+.sideBar {
+    width: 14.5rem;
+    height: 100vh;
+    background-color: var(--background-color);
+}

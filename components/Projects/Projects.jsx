@@ -1,5 +1,5 @@
 
-import Slideshow from '../../components/Slideshow/Slideshow.jsx'
+import Slideshow from '../Slideshow/Slideshow.jsx'
 
 import styles from './Projects.module.css'
 
