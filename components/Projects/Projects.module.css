@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  margin: 2rem 0 4rem 0;
 }
 
 .Projects{
@@ -18,12 +19,33 @@
     -webkit-overflow-scrolling: touch;
 }
 
+.Projects ul{
+  padding-inline-start: 40px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.Projects li{
+  width: 32rem;
+  /* box-shadow: 0 0 10px black; */
+}
+
+.Projects a{
+  margin: 0;
+}
+
+.sectionName{
+  padding: 4rem 0 4rem 6rem;
+  /* width: 80%; */
+}
+
 .projectsWrapper h2{
     position: static;
     width: 100%;
     font-size: 2rem;
-    margin: 4rem 0 0 2rem;
+    margin: 2rem 0;
   }
+
 
 
 
@@ -53,21 +75,58 @@ background-color:burlywood;
 z-index: -2;
 }
 
+.sectionHeader{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 22rem;
+  padding: 2rem .5rem 1rem;
+}
+
+.swipeIcon{
+  display: none;
+  width: 3rem;
+  height: 3rem;
+  color: rgb(0, 0, 0, 0.4);
+}
+
+.glideIcon{
+  width: 4rem;
+  height: 4rem;
+  color: rgb(0, 0, 0, 0.4);
+  margin: 0 1rem;
+}
+
 @media (max-width: 600px) { 
   .NavBar {
     display: none;
   }
   .Projects{
     width: 90vw;
+    height: auto;
+    margin: 0 auto;
+  }
+  .projectsWrapper{
+    width: 100vw;
+    height: 100vh;
+    margin: 1rem 0;
   }
   .projectsWrapper h2{
     margin: 1rem 1rem;
   }
+  .Projects ul{
+    margin: 1rem;
+  }
+  .Projects li{
+    width: auto;
+    margin: 0 2rem;
+  }
   .Projects a{
-    width: 90vw;
+    width: 85vw;
+    /* margin: 0 1rem; */
   }
   .Projects p{
-    width: 90vw;
+    width: 80vw;
     margin: 0;
     height: auto;
   }
@@ -76,5 +135,22 @@ z-index: -2;
   }
   .toggleButton {
     display: flex;
+  }
+  .sectionName{
+    padding: 2rem .5rem 1rem;
+    width: 40%;
+  }
+  .swipeIcon{
+    display: flex;
+  }
+  .glideIcon{
+    display: none;
+  }
+  .sectionHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90vw;
+    padding: 0 0 1rem;
   }
 }

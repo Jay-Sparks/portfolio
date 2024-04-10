@@ -1,21 +1,22 @@
 import React from 'react';
 
-import styles from './Menu.module.css';
-import NavBar from '../components/NavBar/NavBar';
+import NavBar from '../NavBar/NavBar';
 import { CgMenuLeft } from 'react-icons/cg';
+
+import styles from './Menu.module.css';
 
 function Menu({ isMenu, setIsMenu }) {
   return (
     <>
       {isMenu ? (
-        <div className={styles.menuWrapper}>
+        <>
           <div className={styles.sideBar1}>
             <NavBar />
           </div>
           <div className={styles.cover} onClick={() => setIsMenu(false)}></div>
-        </div>
+        </>
       ) : (
-        <button className="menu" onClick={() => setIsMenu(true)}>
+        <button className={styles.menu} onClick={() => setIsMenu(true)}>
           <CgMenuLeft className={styles.menuIcon} />
         </button>
       )}

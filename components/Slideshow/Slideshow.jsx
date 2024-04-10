@@ -1,41 +1,43 @@
-import React from 'react'
-import styled from 'styled-components'
-import items from './Items.jsx'
+import React from 'react';
+import styled from 'styled-components';
+import items from './Items.jsx';
 
-const Main = styled.div`
-  height: 100%;
+import styles from './Slideshow.module.css'
+
+const Main = styled.ul`
+  height: 75vh;
   white-space: nowrap;
   display: flex;
   // transform-origin: center center;
   // transform: scale(1);
   // transition: transform 0.5s;
+`;
 
-  `
-  
-  const Content = styled.div`
+const Content = styled.li`
   scroll-snap-align: start;
-  width: 32rem;
+  // width: 100%;
   margin: 0 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-`
+`;
 
 const Marker = styled.div`
   color: var(--secondary-text-color);
   left: 140px;
   // font-family: monospace;
-`
+`;
 
 const Image = styled.a`
-  height: 40%;
+  height: 100%;
+  width: 100%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-size: 32rem 340px;
   cursor: pointer;
   // box-shadow: inset 0px 0px 50px rgba(0,0,0,0.4);
-`
+`;
 
 const ProjectTitle = styled.h2`
   color: var(--secondary-text-color);
@@ -44,7 +46,7 @@ const ProjectTitle = styled.h2`
   -webkit-text-fill-color: unset;
   background: unset;
   -webkit-background-clip: unset;
-`
+`;
 
 const Description = styled.p`
   width: 100%;
@@ -54,7 +56,7 @@ const Description = styled.p`
   white-space: wrap;
   line-height: 1.5rem;
   color: var(--secondary-text-color);
-`
+`;
 
 const BuiltUsing = styled.p`
   width: 100%;
@@ -65,22 +67,29 @@ const BuiltUsing = styled.p`
   margin: 2rem 0;
   line-height: 1.5rem;
   color: var(--secondary-text-color);
-`
+`;
 
 function Slideshow() {
   return (
     <Main>
-        {items.map((item, index) => {
-          return <Content key={index}>
-                  <Marker>{index + 1}{": " + item.blurb}</Marker>
-                  <Image style={{ backgroundImage: item.css }} href={item.url}/>
-                  <ProjectTitle>{item.title}</ProjectTitle>
-                  <Description>{item.description}</Description>
-                  <BuiltUsing>{item.tools}</BuiltUsing>
-              </Content>
-        })}
-  </Main>
-  )
+      {items.map((item, index) => {
+        return (
+          <Content key={index} className={styles.slideshowWrap}>
+            <>
+              <Marker>
+                {index + 1}
+                {': ' + item.blurb}
+              </Marker>
+              <Image style={{ backgroundImage: item.css }} href={item.url} />
+              <ProjectTitle>{item.title}</ProjectTitle>
+              <Description>{item.description}</Description>
+              <BuiltUsing>{item.tools}</BuiltUsing>
+            </>
+          </Content>
+        );
+      })}
+    </Main>
+  );
 }
 
-export default Slideshow
+export default Slideshow;

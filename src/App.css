@@ -1,12 +1,11 @@
 .App {
   width: 100vw;
-
   background-color: var(--background-color);
   transition: background-color 0.25s ease-in-out;
   display: flex;
-
+  height: 100%;
 }
-
+/* 
 
 .menu{
   display: none;
@@ -32,4 +31,4 @@
   .menu{
     display: flex;
   }
-}
+} */

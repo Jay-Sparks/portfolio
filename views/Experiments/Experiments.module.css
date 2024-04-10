@@ -1,9 +1,55 @@
-.Experiments{
+.Experiments {
     display: flex;
-}
-
-.sideBar {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .aboutContent {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 6rem 4rem 4rem 4rem;
+  }
+  
+  .aboutContent p {
+    margin: 2rem 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    text-align: left;
+    width: 75%;
+    line-height: 1.2rem;
+    color: var(--secondary-text-color);
+  }
+  
+  .aboutContent h2 {
+    position: static;
+    width: 100%;
+    font-size: 2rem;
+    margin: 1rem 0;
+  }
+  
+  .sideBar {
     width: 14.5rem;
     height: 100vh;
     background-color: var(--background-color);
-}
+  }
+  
+  @media (max-width: 600px) {
+    .Experiments{
+      height: 100%;
+    }
+    .aboutContent {
+      width: 80vw;
+      padding: 5rem 0;
+      margin: auto;
+    }
+    .aboutContent p{
+      width: 100%;
+    }
+    .sideBar{
+      width: 100%;
+    }
+  }
+  

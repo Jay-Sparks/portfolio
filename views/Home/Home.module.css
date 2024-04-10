@@ -1,7 +1,10 @@
-
-
-
 .views{
     width: 100%;
     overflow: hidden;
   }
+
+  /* @media (max-width: 600px) {
+    .views{
+      width: 100vw;
+    }
+  } */

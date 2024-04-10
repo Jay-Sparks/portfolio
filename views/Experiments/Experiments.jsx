@@ -1,17 +1,27 @@
-import React from 'react'
-import NavBar from '../../components/NavBar/NavBar'
+import React from 'react';
 
-import styles from './Experiments.module.css'
+import styles from './Experiments.module.css';
+import Toggle from '../../components/Toggle/Toggle';
+import Menu from '../../components/Menu/Menu';
 
-function Experiments() {
+function Experiments({ isDark, setIsDark, isMenu, setIsMenu }) {
   return (
-    <div className={styles.Experiments}>
-      <h1>/experiments</h1>
-      <div className={styles.sideBar}>
-        <NavBar />
+    <>
+      <Menu isMenu={isMenu} setIsMenu={setIsMenu}/>
+      <div className={styles.Experiments}>
+        <Toggle
+          isChecked={isDark}
+          handleChange={() => {
+            setIsDark(!isDark);
+          }}
+        />
+        <div className={styles.aboutContent}>
+          <h2>coming soon...</h2>
+          <h1>/experiments</h1>
+        </div>
       </div>
-    </div>
-  )
+    </>
+  );
 }
 
-export default Experiments
+export default Experiments;

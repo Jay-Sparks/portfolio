@@ -1,12 +1,18 @@
 
 import Slideshow from '../Slideshow/Slideshow.jsx'
+import { PiHandSwipeLeftThin } from "react-icons/pi";
+import { GiSideswipe } from "react-icons/gi";
 
 import styles from './Projects.module.css'
 
 function Projects() {
   return (
     <div className={styles.projectsWrapper}>
-      <h2>Projects</h2>
+      <div className={styles.sectionHeader}>
+        <h2 className={styles.sectionName}>Projects</h2>
+        <PiHandSwipeLeftThin className={styles.swipeIcon} />
+        <GiSideswipe className={styles.glideIcon}/>
+      </div>
       <div className={styles.Projects}>
         <Slideshow />
       </div>

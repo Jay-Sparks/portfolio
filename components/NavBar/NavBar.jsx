@@ -31,9 +31,7 @@ function NavBar() {
         , 1400)
     }, [])
 
-    
     const location = useLocation();
-    console.log(location);
 
     return (
     <div className={styles.NavBar}>

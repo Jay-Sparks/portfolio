@@ -1,6 +1,8 @@
+
 import styles from './Toggle.module.css'
 
 function Toggle({ handleChange, isChecked }) {
+
   return (
     <div className={styles.toggleContainer}>
         <input 
