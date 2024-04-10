@@ -105,7 +105,7 @@ function Experience({ isDark }) {
                 amount={6}
                 emissive="black"
                 size={2}
-                position={[-150, 30, 150]}
+                position={[-250, 30, 250]}
               />
               <Moon
                 color="#D42B07"
