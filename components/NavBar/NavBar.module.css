@@ -17,7 +17,7 @@
     min-width: 6rem;
     width: 14.5rem;
     margin: 3rem 0;
-    position: fixed;
+    /* position: fixed; */
 }
 
 
@@ -210,6 +210,17 @@
     }
     .navLinks{
       margin: 1rem 0;
+    }
+    .topLinks{
+      padding: 1rem 0;
+      margin: 1rem 3rem 1rem 1rem;
+    }
+    .botLinks{
+      padding: 1rem 0;
+      margin: 1rem 3rem 1rem 1rem;
+    }
+    .glance{
+      margin: 0 0 0 1rem;
     }
   }
 

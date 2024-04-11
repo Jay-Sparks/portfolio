@@ -2,6 +2,7 @@
     width: 14.5rem;
     z-index: 100;
     background-color: var(--background-color);
+    height: 100svh;
   }
   
   .sideBar1{

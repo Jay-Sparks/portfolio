@@ -5,7 +5,7 @@ import items from './Items.jsx';
 import styles from './Slideshow.module.css'
 
 const Main = styled.ul`
-  height: 75vh;
+  height: 80%;
   white-space: nowrap;
   display: flex;
   // transform-origin: center center;

@@ -1,5 +1,5 @@
 .Experience{
-  height: 100vh;
+  height: 100svh;
   width: 100%;
   /* overflow: hidden; */
 }
@@ -44,8 +44,8 @@ h2 {
 .scrollDowns {
   position: absolute;
   top: 85vh;
-  left: 54%;
-  transform:translateX(-46%);
+  left: 55%;
+  transform:translateX(-50%);
   z-index: 5;
   /* margin: auto; */
   height: 55px;
@@ -79,6 +79,9 @@ h2 {
 }
 
 @media (max-width: 600px) { 
+  .Experience canvas{
+    width: 100svw;
+  }
   h1{
     display: none;
   }

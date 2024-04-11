@@ -2,7 +2,7 @@
   display: flex;
   width: 100%;
   height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .aboutContent {
@@ -36,6 +36,9 @@
 }
 
 @media (max-width: 600px) {
+  .About{
+    height: 100%;
+  }
   .aboutContent {
     width: 80vw;
     padding: 5rem 0;
