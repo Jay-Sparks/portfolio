@@ -81,6 +81,8 @@ h2 {
 @media (max-width: 600px) { 
   .Experience canvas{
     width: 100svw;
+    /* overflow-y : scroll; */
+    touch-action: auto !important;
   }
   h1{
     display: none;
