@@ -4,15 +4,18 @@ import NavBar from '../NavBar/NavBar';
 import { CgMenuLeft } from 'react-icons/cg';
 
 import styles from './Menu.module.css';
+import SideDrawerAnimation from '../SideDrawerAnimation/SideDrawerAnimation.jsx';
 
 function Menu({ isMenu, setIsMenu }) {
   return (
     <>
       {isMenu ? (
         <>
-          <div className={styles.sideBar1}>
-            <NavBar />
-          </div>
+          <SideDrawerAnimation isMenu={isMenu}>
+            <div className={styles.sideBar1}>
+              <NavBar />
+            </div>
+          </SideDrawerAnimation>
           <div className={styles.cover} onClick={() => setIsMenu(false)}></div>
         </>
       ) : (

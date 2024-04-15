@@ -3,11 +3,13 @@
     z-index: 100;
     background-color: var(--background-color);
     height: 100svh;
+    border-right: solid 0.12rem rgba(189, 189, 189, 0.456);
   }
   
   .sideBar1{
     width: 55vw;
     background-color: var(--background-color);
+    border-right: solid 0.12rem rgba(189, 189, 189, 0.456);
   }
 
   /* .menuWrapper{
@@ -22,9 +24,9 @@
     right: 0;
     background-color: var(--secondary-text-color);
     opacity: 70%;
-    width: 45vw;
-    height: 100%;
-    z-index: 200;
+    width: 100vw;
+    height: 100svh;
+    z-index: 101;
   }
 
   .menu{
@@ -46,6 +48,11 @@
     height: 2rem;
     color: var(--secondary-text-color);
   }
+
+  .mobileOverlay{
+    width: 0;
+    display: flex;
+  }
   
 
   @media (max-width: 600px) { 
@@ -53,8 +60,10 @@
       display: none;
     }
     .sideBar1{
-      width: 0;
-      z-index: 200;
+      /* width: 0; */
+      z-index: 102;
+      height: 100%;
+      position: fixed;
     }
     .menu{
         display: flex;

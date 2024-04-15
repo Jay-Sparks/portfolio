@@ -1,0 +1,14 @@
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50rem;
+    color: black;
+    align-items: start;
+    width: 100%;
+  }
+
+  .container span {
+    text-align: left;
+  }

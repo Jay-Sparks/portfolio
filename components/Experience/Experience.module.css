@@ -72,6 +72,11 @@ h2 {
   animation-iteration-count: infinite;
 }
 
+.Loading{
+  /* margin: auto; */
+  text-align: center;
+}
+
 @keyframes scroll {
   0% { opacity: 0; }
   10% { transform: translateY(0); opacity: 1; }
