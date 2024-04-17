@@ -65,7 +65,8 @@ function About({ isDark, setIsDark, isMenu, setIsMenu }) {
                 Weiruch's Road to React, Maximillian Schwarzmüller's complete
                 guide and Bruno Simon's Three.js & React-three-fiber. In 2024 I
                 also completed a full-stack Javascript Software Engineering
-                course at Northcoders coding school.
+                course at Northcoders coding school. Where we covered; asynchronous programming, 
+                data structures, databases, CI/CD, paired programming and TDD.
               </p>
               <h2>Agile Collaborator</h2>
               <p>

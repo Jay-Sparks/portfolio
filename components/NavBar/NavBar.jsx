@@ -120,7 +120,7 @@ function NavBar() {
                 <a href="https://artico-app-js.netlify.app/" target={'_blank'}>
                   Artico
                 </a>
-                <a
+                {/* <a
                   href="https://threejs-tshirt-ai.netlify.app/"
                   target={'_blank'}
                 >
@@ -128,7 +128,7 @@ function NavBar() {
                 </a>
                 <a href="https://threejs-island.netlify.app/" target={'_blank'}>
                   3D Island
-                </a>
+                </a> */}
                 <a href="https://waste-not-js.netlify.app/" target={'_blank'}>
                   Waste Not
                 </a>

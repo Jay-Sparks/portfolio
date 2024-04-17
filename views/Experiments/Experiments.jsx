@@ -3,6 +3,8 @@ import React from 'react';
 import styles from './Experiments.module.css';
 import Toggle from '../../components/Toggle/Toggle';
 import Menu from '../../components/Menu/Menu';
+import Slideshow from '../../components/Slideshow/Slideshow';
+import Projects from '../../components/Projects/Projects';
 
 function Experiments({ isDark, setIsDark, isMenu, setIsMenu }) {
   return (
@@ -16,7 +18,7 @@ function Experiments({ isDark, setIsDark, isMenu, setIsMenu }) {
           }}
         />
         <div className={styles.aboutContent}>
-          <h2>coming soon...</h2>
+          <Projects />
           <h1>/experiments</h1>
         </div>
       </div>

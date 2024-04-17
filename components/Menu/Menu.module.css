@@ -1,8 +1,8 @@
 .sideBar{
     width: 14.5rem;
-    z-index: 100;
+    z-index: 102;
     background-color: var(--background-color);
-    height: 100svh;
+    /* height: 100svh; */
     border-right: solid 0.12rem rgba(189, 189, 189, 0.456);
   }
   
@@ -10,6 +10,7 @@
     width: 55vw;
     background-color: var(--background-color);
     border-right: solid 0.12rem rgba(189, 189, 189, 0.456);
+
   }
 
   /* .menuWrapper{

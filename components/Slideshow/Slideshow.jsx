@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import items from './Items.jsx';
 
-import styles from './Slideshow.module.css'
+// import styles from './Slideshow.module.css'
 
 const Main = styled.ul`
   height: 80%;
@@ -74,7 +74,7 @@ function Slideshow() {
     <Main>
       {items.map((item, index) => {
         return (
-          <Content key={index} className={styles.slideshowWrap}>
+          <Content key={index}>
             <>
               <Marker>
                 {index + 1}

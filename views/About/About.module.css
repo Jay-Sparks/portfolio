@@ -9,7 +9,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 6rem 4rem 4rem 4rem;
+  padding: 6rem 4rem 4rem 3rem;
 }
 
 .aboutContent p {

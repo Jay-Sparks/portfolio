@@ -45,11 +45,11 @@ function Experience({ isDark }) {
 
   return (
     <div className={styles.Experience}>
-      <div className={styles.scrollDowns}>
+      {/* <div className={styles.scrollDowns}>
         <div className={styles.mousey}>
           <div className={styles.scroller}></div>
         </div>
-      </div>
+      </div> */}
       {/* <Suspense fallback={<h2 className={styles.Loading}>Loading...</h2>}> */}
       <Suspense fallback={null}>
         <Canvas camera={{ fov: 60, position: [0, 6, 20] }}>

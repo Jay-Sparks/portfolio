@@ -20,7 +20,7 @@ function Home({ isDark, setIsDark, isMenu, setIsMenu }) {
             handleChange={() => {setIsDark(!isDark)}}
           />
           <Experience isDark={isDark}/>
-          <Projects />
+          {/* <Projects /> */}
       </div>
     </>
   )
