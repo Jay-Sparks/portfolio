@@ -15,6 +15,7 @@
   --toggle-fg: #ffd000;
   --primary-button-background: rgba(189, 189, 189, 0.466);
   --primary-button-background-dark: #000;
+  --primary-button-background-light: #f5f5f5;
   scroll-behavior: smooth;
 }
 
@@ -25,6 +26,7 @@
   --secondary-text-color: #ffffff;
   --toggle-bg: #283452;
   --toggle-fg: #9E3DFF;
+  --primary-button-background-light: #000;
   --primary-button-background: rgba(189, 189, 189, 0.456);
-  --primary-button-background-dark: #f5f5f5;
+  --primary-button-background-dark: #f5F5F4;
 }

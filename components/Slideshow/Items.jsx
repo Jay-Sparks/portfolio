@@ -33,7 +33,7 @@ export default [
       blurb: "Interactive 3D AI app",
       title: "mAI t-shirts",
       description: "A R3F and three.js web app built using openAIs dalle api to power logo and print designs for a t-shirt model, with a focus upon 3d interaction and 3rd party api integration.",
-      tools: "React, three.js, react-three-fiber, Drei, Express,openA",
+      tools: "React, three.js, react-three-fiber, Drei, Express,openAI",
       github: ['https://github.com/Jay-Sparks/threejs_ai_tshirts'],
       url: 'https://threejs-tshirt-ai.netlify.app/'
     },

@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import items from './Items.jsx';
+import { FaGithubAlt } from 'react-icons/fa';
 
-// import styles from './Slideshow.module.css'
+import styles from './Slideshow.module.css'
 
 const Main = styled.ul`
   height: 80%;
@@ -77,13 +78,19 @@ function Slideshow() {
           <Content key={index}>
             <>
               <Marker>
-                {index + 1}
-                {': ' + item.blurb}
+                {item.blurb}
               </Marker>
               <Image style={{ backgroundImage: item.css }} href={item.url} />
               <ProjectTitle>{item.title}</ProjectTitle>
               <Description>{item.description}</Description>
               <BuiltUsing>{item.tools}</BuiltUsing>
+              <a
+                className={styles.copyWrapper}
+                href={item.github}
+                target={'_blank'}
+              >
+                <FaGithubAlt />
+              </a>
             </>
           </Content>
         );

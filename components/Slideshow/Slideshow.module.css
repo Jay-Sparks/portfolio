@@ -1,0 +1,17 @@
+
+
+.copyWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6rem;
+    height: 3rem;
+    background-color: var(--primary-button-background);
+    border-radius: .5rem;
+    box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.2);
+  }
+
+  .copyWrapper:hover{
+    box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.2);
+    background-color: var(--primary-button-background-light);
+  }
