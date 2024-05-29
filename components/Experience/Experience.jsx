@@ -15,6 +15,8 @@ import { Canvas } from '@react-three/fiber';
 import styles from './Experience.module.css';
 import NameText from '../../components/NameText/NameText';
 import Ocean from '../../components/Ocean/Ocean';
+import SmallShip from '../../components/3dAssets/SmallShip';
+import Dock from '../3dAssets/Dock';
 
 function Experience({ isDark }) {
   const [sunPosition, setSunPosition] = useState([100, 10, -250]);
@@ -82,7 +84,7 @@ function Experience({ isDark }) {
                   color="#c7c7c7"
                   groundColor="black"
                 />
-                <Moon
+                {/* <Moon
                   color="purple"
                   amount={0}
                   emissive="black"
@@ -144,7 +146,7 @@ function Experience({ isDark }) {
                   emissive="#D7D59D"
                   size={1.1}
                   position={[250, 60, 180]}
-                />
+                /> */}
                 <Cloud
                   segments={15}
                   bounds={[1000, 7, 1100]}
@@ -207,13 +209,38 @@ function Experience({ isDark }) {
               floatingRange={[1, 3]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
             >
               <NameText content={`Jay Spencer`} positionY={3} />
-              <NameText content={`Creative Developer`} positionY={1.5} />
+              <NameText content={`Snr Product Owner &`} positionY={2} />
+              <NameText content={`Software Engineer`} positionY={1}/>
             </Float>
 
+            <Float
+              speed={0.8} // Animation speed, defaults to 1
+              rotationIntensity={0} // XYZ rotation intensity, defaults to 1
+              floatIntensity={0.8} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
+              floatingRange={[-0.25, -0.05]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
+            >
+              <SmallShip 
+                position={[70, -0.2, -180]}
+                rotation-y={Math.PI * 1.8}
+              />
+            </Float>
+
+            {/* <Dock
+              scale={[1.5, 1.5, 1.5]}
+              position={[-22, -0.2, -10]}
+              rotation-y={Math.PI * 2.25}
+            />
+            <Dock 
+              scale={[1.5, 1.5, 1.5]}
+              position={[-21, -0.2, -11]}
+              rotation-y={Math.PI * 1.25}
+            /> */}
+
+
             {/* <mesh receiveShadow position={ [100, 1, 100] } >
-                          <boxGeometry args={ [ 10, 0.5, 10 ] } />
-                          <meshStandardMaterial color="#8f4111" />
-                      </mesh> */}
+                <boxGeometry args={ [ 10, 0.5, 10 ] } />
+                <meshStandardMaterial color="#8f4111" />
+            </mesh> */}
             <Ocean />
           </EffectComposer>
         </Canvas>
