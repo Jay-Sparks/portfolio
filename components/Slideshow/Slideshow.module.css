@@ -1,17 +1,86 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
 
+.card {
+  overflow: hidden;
+  border: 1px solid rgba(140, 140, 140, 0.22);
+  border-radius: 0.65rem;
+  background-color: var(--background-color);
+}
 
-.copyWrapper{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 6rem;
-    height: 3rem;
-    background-color: var(--primary-button-background);
-    border-radius: .5rem;
-    box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.2);
+.card img,
+.imagePlaceholder {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background-color: var(--primary-button-background);
+}
+
+.imagePlaceholder {
+  display: grid;
+  place-items: center;
+  color: var(--primary-text-color);
+  font-size: 0.75rem;
+}
+
+.cardContent {
+  padding: 1.25rem;
+}
+
+.blurb {
+  color: var(--primary-text-color);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.card h3 {
+  margin: 0.55rem 0 0.8rem;
+  color: var(--secondary-text-color);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.description {
+  color: var(--secondary-text-color);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.tools {
+  margin-top: 1rem;
+  color: var(--primary-text-color);
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.25rem;
+}
+
+.links a {
+  color: var(--secondary-text-color);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-underline-offset: 0.2rem;
+}
+
+@media (max-width: 1050px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
 
-  .copyWrapper:hover{
-    box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.2);
-    background-color: var(--primary-button-background-light);
+@media (max-width: 650px) {
+  .grid {
+    grid-template-columns: 1fr;
   }
+}

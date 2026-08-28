@@ -1,15 +1,16 @@
-.sideBar{
+  .sideBar{
     width: 14.5rem;
     z-index: 102;
     background-color: var(--background-color);
     /* height: 100svh; */
-    border-right: solid 0.12rem rgba(189, 189, 189, 0.456);
+    border-right: 1px solid rgba(140, 140, 140, 0.22);
   }
   
   .sideBar1{
     width: 55vw;
     background-color: var(--background-color);
-    border-right: solid 0.12rem rgba(189, 189, 189, 0.456);
+    border-right: 1px solid rgba(140, 140, 140, 0.22);
+    box-shadow: 18px 0 48px rgba(0, 0, 0, 0.12);
 
   }
 

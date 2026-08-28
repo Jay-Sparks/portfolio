@@ -5,6 +5,18 @@ import Toggle from '../../components/Toggle/Toggle';
 import Menu from '../../components/Menu/Menu';
 import TrailAnimation from '../../components/TrailAnimation/TrailAnimation';
 
+const CAREER_HISTORY = [
+  { company: '7IM', role: 'Product Manager, Data Platform', dates: '2026–Present' },
+  { company: 'Redgate', role: 'Product Manager', dates: '2024–2025' },
+  { company: 'Nationwide', role: 'Lead Product Manager', dates: '2019–2023' },
+  { company: 'HSBC', role: 'Product Manager', dates: '2019' },
+  { company: 'Capco', role: 'Consultant', dates: '2015–2018' },
+];
+
+const SOUNDCLOUD_URL = 'https://soundcloud.com/anvme';
+const SOUNDCLOUD_EMBED_URL =
+  'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/anvme&color=%23f28c28&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&visual=false';
+
 function About({ isDark, setIsDark, isMenu, setIsMenu }) {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -28,6 +40,67 @@ function About({ isDark, setIsDark, isMenu, setIsMenu }) {
 
   x.addEventListener('change', mediaQuery);
 
+  const aboutSections = [
+    <section className={styles.introduction} key="who-i-am">
+      <h1 className={styles.aboutHeading}>
+        From ambiguous problems to working products
+      </h1>
+      <p>
+        I work end-to-end, from understanding a problem and shaping the
+        proposition through design and prototyping to getting real products into
+        users&apos; hands. I’m particularly interested in exploring complex problem
+        spaces, identifying where technology can create meaningful value, and
+        turning those opportunities into products worth building.
+      </p>
+    </section>,
+    <section key="where-ive-worked">
+      <h2>Experience</h2>
+      <ul className={styles.careerList}>
+        {CAREER_HISTORY.map(({ company, role, dates }) => (
+          <li className={styles.careerRow} key={`${company}-${dates}`}>
+            <strong>{company}</strong>
+            <span>{role}</span>
+            <span>{dates}</span>
+          </li>
+        ))}
+      </ul>
+    </section>,
+    <section key="beyond-product">
+      <h2>Beyond product</h2>
+      <p>
+        I&apos;ve always liked making things. Music has been a big part of that — I
+        play piano and guitar, and have written, produced and released my own
+        music, including work played on BBC Radio. Away from a screen, I&apos;m
+        usually doing something active: cycling, tennis, badminton or climbing.
+        I also love travelling and exploring different places and cultures.
+      </p>
+    </section>,
+    <div className={styles.soundcloud} key="soundcloud">
+      <iframe
+        title="Anvme on SoundCloud"
+        width="100%"
+        height="166"
+        scrolling="no"
+        frameBorder="no"
+        allow="autoplay"
+        loading="lazy"
+        src={SOUNDCLOUD_EMBED_URL}
+      />
+      <a
+        href={SOUNDCLOUD_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        More on SoundCloud →
+      </a>
+    </div>,
+    <div className={styles.utilityLinks} key="utility-links">
+      <button className={styles.downloadPlaceholder} disabled type="button">
+        Download CV →
+      </button>
+    </div>,
+  ];
+
   return (
     <>
       <Menu isMenu={isMenu} setIsMenu={setIsMenu} />
@@ -42,99 +115,10 @@ function About({ isDark, setIsDark, isMenu, setIsMenu }) {
           className={styles.aboutContent}
           // style={{ opacity: 0.95, width: x.to(v => `${v}rem`) }}
         >
+          {/* From previous route label
           <h1>/about</h1>
-          {isMobile ? (
-            <>
-              <p>
-                A creative full-stack digital collaborator with over 8 years
-                experience in agile teams as a Product Owner & Scrum Master. 4
-                years self-taught in front-end technologies, particularly
-                react.js, and recently completing a full-stack JavaScript
-                course. With a passion for creating delightful & unique user
-                experiences that leverage large data sets and utilise the latest
-                technologies.
-              </p>
-              <h2>Software Engineering</h2>
-              <p>
-                I started my engineering journey learning python basics, moving
-                onto Javascript & JQuery and later learning React 16. During my
-                role as Innovation Product Manager I was able to assist in the
-                build phase of new product concepts, building user interfaces
-                for blockchain, savings and mortgage journeys. I continued to
-                deepen my knowledge of React, utilising resources such as; Robin
-                Weiruch's Road to React, Maximillian Schwarzmüller's complete
-                guide and Bruno Simon's Three.js & React-three-fiber. In 2024 I
-                also completed a full-stack Javascript Software Engineering
-                course at Northcoders coding school. Where we covered; asynchronous programming, 
-                data structures, databases, CI/CD, paired programming and TDD.
-              </p>
-              <h2>Agile Collaborator</h2>
-              <p>
-                5 years as a digital product manager and scrum master, assisting
-                remote teams in delivering complex data dashboards for tier 1
-                banks & leading the research, design and development of new
-                products in the financial services industry.
-              </p>
-              <h2>Entrepreneur</h2>
-              <p>
-                Tech start-up founder of a mobile app called Tipsta, which
-                allowed customers to tip restaurant staff directly. Designed
-                using figma, built using meteor.js & launched to the app store
-                in 2018
-              </p>
-              <h2>Business Consultant</h2>
-              <p>
-                Assisted in the analysis and reporting of a large scale resource
-                allocation programme, that lead to a data clean room and later
-                management information dashboards for senior executives.
-              </p>
-            </>
-          ) : (
-            <TrailAnimation>
-              <p>
-                A creative full-stack digital collaborator with over 8 years
-                experience in agile teams as a Product Owner & Scrum Master. 4
-                years self-taught in front-end technologies, particularly
-                react.js, and recently completing a full-stack JavaScript
-                course. With a passion for creating delightful & unique user
-                experiences that leverage large data sets and utilise the latest
-                technologies.
-              </p>
-              <h2>Software Engineering</h2>
-              <p>
-                I started my engineering journey learning python basics, moving
-                onto Javascript & JQuery and later learning React 16. During my
-                role as Innovation Product Manager I was able to assist in the
-                build phase of new product concepts, building user interfaces
-                for blockchain, savings and mortgage journeys. I continued to
-                deepen my knowledge of React, utilising resources such as; Robin
-                Weiruch's Road to React, Maximillian Schwarzmüller's complete
-                guide and Bruno Simon's Three.js & React-three-fiber. In 2024 I
-                also completed a full-stack Javascript Software Engineering
-                course at Northcoders coding school.
-              </p>
-              <h2>Agile Collaborator</h2>
-              <p>
-                5 years as a digital product manager and scrum master, assisting
-                remote teams in delivering complex data dashboards for tier 1
-                banks & leading the research, design and development of new
-                products in the financial services industry.
-              </p>
-              <h2>Entrepreneur</h2>
-              <p>
-                Tech start-up founder of a mobile app called Tipsta, which
-                allowed customers to tip restaurant staff directly. Designed
-                using figma, built using meteor.js & launched to the app store
-                in 2018
-              </p>
-              <h2>Business Consultant</h2>
-              <p>
-                Assisted in the analysis and reporting of a large scale resource
-                allocation programme, that lead to a data clean room and later
-                management information dashboards for senior executives.
-              </p>
-            </TrailAnimation>
-          )}
+          */}
+          {isMobile ? aboutSections : <TrailAnimation>{aboutSections}</TrailAnimation>}
         </div>
       </div>
     </>

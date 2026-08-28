@@ -1,28 +1,97 @@
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import {
   OrbitControls,
   Sky,
   Sparkles,
-  Cloud,
-  Clouds,
   Stars,
   Float,
 } from '@react-three/drei';
 import { EffectComposer, Vignette } from '@react-three/postprocessing';
-import { Canvas } from '@react-three/fiber';
+import { Canvas, useFrame } from '@react-three/fiber';
 
 import styles from './Experience.module.css';
 import NameText from '../../components/NameText/NameText';
 import Ocean from '../../components/Ocean/Ocean';
-import SmallShip from '../../components/3dAssets/SmallShip';
+import Yacht14m from '../../components/3dAssets/Yacht14m';
+import { SailingVesselInfinity } from '../../components/3dAssets/AdditionalVessels';
+import Cloudscape from '../../components/3dAssets/Cloudscape';
+import CoastalLandscape, {
+  BoatLights,
+} from '../../components/3dAssets/CoastalLandscape';
 import Dock from '../3dAssets/Dock';
+
+const HERO_CONTENT = {
+  name: 'JAY SPENCER',
+  headline: 'Product Leader & Builder',
+  supporting:
+    'Building data, SaaS, fintech and AI products from insight to impact.',
+};
+
+const INFINITY_ROUTE = {
+  start: [-260, -0.6, -405],
+  end: [190, -0.6, -320],
+  duration: 90,
+  bobHeight: 0.12,
+  bobSpeed: 0.7,
+};
+
+function MovingInfinity({ isDark }) {
+  const vessel = useRef();
+
+  useFrame(({ clock }) => {
+    if (!vessel.current) return;
+
+    const elapsed = clock.getElapsedTime();
+    const progress = (elapsed % INFINITY_ROUTE.duration) / INFINITY_ROUTE.duration;
+
+    vessel.current.position.x = THREE.MathUtils.lerp(
+      INFINITY_ROUTE.start[0],
+      INFINITY_ROUTE.end[0],
+      progress
+    );
+    vessel.current.position.y =
+      INFINITY_ROUTE.start[1] +
+      Math.sin(elapsed * INFINITY_ROUTE.bobSpeed) * INFINITY_ROUTE.bobHeight;
+    vessel.current.position.z = THREE.MathUtils.lerp(
+      INFINITY_ROUTE.start[2],
+      INFINITY_ROUTE.end[2],
+      progress
+    );
+  });
+
+  return (
+    <group
+      ref={vessel}
+      position={INFINITY_ROUTE.start}
+      rotation-y={Math.PI * 1.82 - Math.PI / 18}
+      scale={1.5}
+    >
+      <SailingVesselInfinity />
+      {isDark && (
+        <group name="infinity-navigation-light">
+          <mesh position={[0, 1, 0]}>
+            <sphereGeometry args={[0.08, 8, 8]} />
+            <meshBasicMaterial color="#ffb45f" toneMapped={false} />
+          </mesh>
+          <pointLight
+            color="#ffad55"
+            intensity={0.3}
+            distance={9}
+            decay={2}
+            position={[0, 1, 0]}
+          />
+        </group>
+      )}
+    </group>
+  );
+}
 
 function Experience({ isDark }) {
   const [sunPosition, setSunPosition] = useState([100, 10, -250]);
 
   useEffect(() => {
-    if (isDark) setSunPosition([1, -5, 3]);
+    if (isDark) setSunPosition([-120, 85, -160]);
     else setSunPosition([180, 3, -200]);
   }, [isDark]);
 
@@ -57,16 +126,20 @@ function Experience({ isDark }) {
         <Canvas camera={{ fov: 60, position: [0, 6, 20] }}>
           <EffectComposer disableNormalPass>
             <Vignette darkness={0.5} />
+            <fog
+              attach="fog"
+              args={[isDark ? '#303b48' : '#b9c9d1', 240, 680]}
+            />
 
             <Sky
-              sunPosition={[100, 10, -250]}
+              sunPosition={[115, 8, -285]}
               distance={45000}
               inclination={0.6}
               azimuth={0.1}
-              turbidity={isDark ? 1 : 1}
-              rayleigh={isDark ? 0 : 0.5}
-              mieDirectionalG={isDark ? 0.4 : 0.8}
-              mieCoefficient={0.005}
+              turbidity={isDark ? 1 : 3.2}
+              rayleigh={isDark ? 0 : 0.9}
+              mieDirectionalG={isDark ? 0.4 : 0.65}
+              mieCoefficient={isDark ? 0.005 : 0.002}
             />
             {isDark ? (
               <>
@@ -80,9 +153,9 @@ function Experience({ isDark }) {
                   speed={1}
                 />
                 <hemisphereLight
-                  intensity={0.5}
-                  color="#c7c7c7"
-                  groundColor="black"
+                  intensity={0.34}
+                  color="#7892b0"
+                  groundColor="#080d14"
                 />
                 {/* <Moon
                   color="purple"
@@ -147,61 +220,37 @@ function Experience({ isDark }) {
                   size={1.1}
                   position={[250, 60, 180]}
                 /> */}
-                <Cloud
-                  segments={15}
-                  bounds={[1000, 7, 1100]}
-                  volume={200}
-                  color="white"
-                  position={[0, 100, -5]}
-                  fade={30}
-                />
-                <Cloud
-                  segments={50}
-                  bounds={[800, 8, 800]}
-                  volume={230}
-                  color="white"
-                  position={[0, 200, 0]}
-                  fade={10}
-                />
-                <Clouds material={THREE.MeshBasicMaterial}></Clouds>
               </>
-            ) : (
-              <Clouds material={THREE.MeshBasicMaterial}>
-                <Cloud
-                  segments={50}
-                  bounds={[1000, 4, 1000]}
-                  volume={100}
-                  color="#FCF5E5"
-                  position={[0, 100, -4]}
-                  fade={60}
-                />
-                <Cloud
-                  segments={50}
-                  bounds={[800, 8, 800]}
-                  volume={250}
-                  color="#FCF5E5"
-                  position={[0, 200, 0]}
-                  fade={30}
-                />
-              </Clouds>
-            )}
-            <ambientLight intensity={isDark ? 0.3 : 2} />
+            ) : null}
+            <Cloudscape isDark={isDark} />
+            <ambientLight
+              color={isDark ? '#8fa1b5' : '#b8cce0'}
+              intensity={isDark ? 0.18 : 0.85}
+            />
             <directionalLight
               castShadow
-              intensity={isDark ? 0.5 : 1}
+              color={isDark ? '#8fa9c6' : '#ffc978'}
+              intensity={isDark ? 0.72 : 1.3}
               position={sunPosition}
               shadow-normalBias={0.04}
             />
             <OrbitControls
-              target={[0, 3, 0]}
+              target={[0, 8, 0]}
               minDistance={20}
               maxDistance={20}
               enableRotate={true}
-              maxPolarAngle={Math.PI / 2}
-              minPolarAngle={Math.PI / 6}
+              minAzimuthAngle={-0.16}
+              maxAzimuthAngle={0.16}
+              minPolarAngle={1.62}
+              maxPolarAngle={1.72}
+              enableDamping
+              dampingFactor={0.04}
+              rotateSpeed={0.22}
               enableZoom={false}
               enablePan={false}
             />
+
+            {/* From previous 3D hero text
             <Float
               speed={1} // Animation speed, defaults to 1
               rotationIntensity={0} // XYZ rotation intensity, defaults to 1
@@ -212,6 +261,7 @@ function Experience({ isDark }) {
               <NameText content={`Snr Product Owner &`} positionY={2} />
               <NameText content={`Software Engineer`} positionY={1}/>
             </Float>
+            */}
 
             <Float
               speed={0.8} // Animation speed, defaults to 1
@@ -219,11 +269,19 @@ function Experience({ isDark }) {
               floatIntensity={0.8} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
               floatingRange={[-0.25, -0.05]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
             >
-              <SmallShip 
-                position={[70, -0.2, -180]}
-                rotation-y={Math.PI * 1.8}
-              />
+              <group
+                position={[15, -1.5, -10]}
+                rotation-y={Math.PI * 1.8 - Math.PI / 2}
+                scale={2.1}
+              >
+                <Yacht14m />
+                <BoatLights isDark={isDark} />
+              </group>
             </Float>
+
+            <MovingInfinity isDark={isDark} />
+
+            <CoastalLandscape isDark={isDark} />
 
             {/* <Dock
               scale={[1.5, 1.5, 1.5]}
@@ -245,7 +303,12 @@ function Experience({ isDark }) {
           </EffectComposer>
         </Canvas>
       </Suspense>
-      <h1>/jayspencer</h1>
+      <header className={styles.heroContent}>
+        <p className={styles.heroName}>{HERO_CONTENT.name}</p>
+        <span className={styles.heroAccent} />
+        <h1 className={styles.heroHeadline}>{HERO_CONTENT.headline}</h1>
+        <p className={styles.heroSupporting}>{HERO_CONTENT.supporting}</p>
+      </header>
     </div>
   );
 }

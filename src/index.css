@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   /* text-align: center; */
 }
 
@@ -13,6 +13,9 @@
   --secondary-text-color: #000;
   --toggle-bg: #f0eb9d;
   --toggle-fg: #ffd000;
+  --accent-color: #ffd000;
+  --brand-accent-color: var(--secondary-text-color);
+  --nav-active-accent-color: var(--secondary-text-color);
   --primary-button-background: rgba(189, 189, 189, 0.466);
   --primary-3dtext-color: blue;
   --primary-button-background-dark: #000;
@@ -22,11 +25,14 @@
 
 [data-theme="dark"] {
   --background-color: #0a0a0a;
-  --foreground-color: #9E3DFF;
-  --primary-text-color: #9E3DFF;
+  --accent-color: #f28c28;
+  --brand-accent-color: var(--accent-color);
+  --nav-active-accent-color: var(--accent-color);
+  --foreground-color: var(--accent-color);
+  --primary-text-color: var(--accent-color);
   --secondary-text-color: #ffffff;
   --toggle-bg: #283452;
-  --toggle-fg: #9E3DFF;
+  --toggle-fg: var(--accent-color);
   --primary-3dtext-color: #f5F5F4;
   --primary-button-background-light: #000;
   --primary-button-background: rgba(189, 189, 189, 0.456);

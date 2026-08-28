@@ -3,32 +3,62 @@ import WasteNotImg from '../../src/assets/Waste-Not.png'
 import Tshirt from '../../src/assets/3dTshirt.png'
 import cityZen from '../../src/assets/cityZenGame.png'
 import island from '../../src/assets/3dIsland.png'
+import photoGallery from '../../src/assets/photoGallery.png'
 
 
 export default [
-    // {
-    //   css: `url(${cityZen})`,
-    //   height: 300,
-    //   blurb: "3D multiplayer web app",
-    //   title: "City Zen",
-    //   description: "A full-stack multiplayer web-app built as part of a collaboration over 3 weeks. I created 3d assets using blender and took on a lead developer role, guiding the team through scrum ceremonies whilst building a significant portion of the front-end experience.",
-    //   tools: "React.js, React-Three-fibre, Drei, React-three-rapier, Three.js, MongoDB, Express & Blender",
-    //   github: ['https://github.com/saeidsaeity/BoardGame-FrontEnd', 'https://github.com/FrinkoTay/GameBoardBackEnd' ],
-    //   url: 'https://city-zen.netlify.app/'
-    // },
-    // {
-    //   css: `url(${ArticoImg})`,
-    //   height: 300,
-    //   blurb: "Full stack JS web app",
-    //   title: "Artico",
-    //   description: "A full stack responsive blogging and news web app, built to learn; test driven development (TDD), model view controller (MVC), Express, CI/CD, PostGreSQL and Node as part of the Northcoders full-stack software development course.",
-    //   tools: "Node, express, postregsql, jest, supertest, TDD, CI/CD; and React, Javascript, axios & css",
-    //   github: ['https://github.com/Jay-Sparks/Artico-fe'],
-    //   url: 'https://artico-app-js.netlify.app/'
-
-    // },
     {
-      css: `url(${Tshirt})`,
+      image: cityZen,
+      height: 300,
+      blurb: "3D multiplayer web app",
+      title: "City Zen",
+      description: "A full-stack multiplayer web-app built as part of a collaboration over 3 weeks. I created 3d assets using blender and took on a lead developer role, guiding the team through scrum ceremonies whilst building a significant portion of the front-end experience.",
+      tools: "React.js, React-Three-fibre, Drei, React-three-rapier, Three.js, MongoDB, Express & Blender",
+      github: ['https://github.com/saeidsaeity/BoardGame-FrontEnd', 'https://github.com/FrinkoTay/GameBoardBackEnd' ],
+      url: 'https://city-zen.netlify.app/'
+    },
+    {
+      image: ArticoImg,
+      height: 300,
+      blurb: "Full stack JS web app",
+      title: "Artico",
+      description: "A full stack responsive blogging and news web app, built to learn; test driven development (TDD), model view controller (MVC), Express, CI/CD, PostGreSQL and Node as part of the Northcoders full-stack software development course.",
+      tools: "Node, express, postregsql, jest, supertest, TDD, CI/CD; and React, Javascript, axios & css",
+      github: ['https://github.com/Jay-Sparks/Artico-fe'],
+      url: 'https://artico-app-js.netlify.app/'
+    },
+    {
+      image: null,
+      height: 300,
+      blurb: 'Project archive',
+      title: 'Rent vs Buy',
+      description: null,
+      tools: null,
+      github: [],
+      url: 'https://rentvsbuycalc-js.netlify.app/'
+    },
+    {
+      image: WasteNotImg,
+      height: 300,
+      blurb: "Authenticated web app",
+      title: "Waste Not",
+      description: "A responsive c.r.u.d web app that allows users to save a set of possible recipes they could cook. Users can login using their google email or email & password, provide the food currently in their kitchen and save favourite recipes to their account.",
+      tools: "React, Node, Ajax & Firebase",
+      github: ['https://github.com/Jay-Sparks/waste-not' ],
+      url: 'https://waste-not-js.netlify.app/'
+    },
+    {
+      image: photoGallery,
+      height: 300,
+      blurb: 'Full-stack gallery experiment',
+      title: 'T3 Photo Gallery',
+      description: "A TypeScript and Next.js gallery built while learning a production-oriented stack, including authentication, storage, rate limiting and analytics.",
+      tools: 'Next.js, TypeScript, Tailwind, Drizzle, Vercel, Clerk, Upstash, Sentry & PostHog',
+      github: ['https://github.com/Jay-Sparks/t3gallery'],
+      url: 'https://t3gallery-eta-red.vercel.app/'
+    },
+    {
+      image: Tshirt,
       height: 300,
       blurb: "Interactive 3D AI app",
       title: "mAI t-shirts",
@@ -38,7 +68,7 @@ export default [
       url: 'https://threejs-tshirt-ai.netlify.app/'
     },
     {
-      css: `url(${island})`,
+      image: island,
       height: 300,
       blurb: "Single page 3D app",
       title: "Flying Island",
@@ -47,15 +77,4 @@ export default [
       github: ['https://github.com/Jay-Sparks/threejs-island/tree/master' ],
       url: 'https://threejs-island.netlify.app/'
     },
-    // {
-    //   css: `url(${WasteNotImg})`,
-    //   height: 300,
-    //   blurb: "Authenticated web app",
-    //   title: "Waste not",
-    //   description: "A responsive c.r.u.d web app that allows users to save a set of possible recipes they could cook. Users can login using their google email or email & password, provide the food currently in their kitchen and save favourite recipes to their account.",
-    //   tools: "React, Node, Ajax & Firebase",
-    //   github: ['https://github.com/Jay-Sparks/waste-not' ],
-    //   url: 'https://waste-not-js.netlify.app/'
-    // }
   ]
-  

@@ -7,6 +7,7 @@ import { animated, useSpring } from '@react-spring/web';
 import NavAnimation from '../NavAnimation/NavAnimation';
 
 function NavBar() {
+  /* From previous .JS animation
   const [isHovered, setIsHovered] = useState(true);
   const [{ x, color, background }, set] = useSpring(() => ({
     x: 10,
@@ -26,16 +27,20 @@ function NavBar() {
       setIsHovered(false);
     }, 1400);
   }, []);
+  */
 
   const location = useLocation();
 
   return (
     <div className={styles.NavBar}>
       <div className={styles.navLinks}>
-        <animated.a
-          href={location.pathname === '/' ? '#' : '/'}
-          className={styles.removeA}
-        >
+        <Link to="/" className={styles.brand}>
+          <span className={styles.brandMark}>.JS</span>
+          <span className={styles.brandDescriptor}>Product Leader & Builder</span>
+        </Link>
+
+        {/* From previous .JS animation
+        <animated.a href={location.pathname === '/' ? '#' : '/'} className={styles.removeA}>
           <animated.div
             onMouseEnter={() => {
               set.start({
@@ -71,8 +76,10 @@ function NavBar() {
             </animated.span>
           </animated.div>
         </animated.a>
+        */}
         <NavAnimation>
           <div className={styles.topLinks}>
+            <p className={styles.groupLabel}>Explore</p>
             <div className={styles.topLinkWrapper}>
               <Link
                 to={`/about`}
@@ -87,60 +94,31 @@ function NavBar() {
             </div>
             <div className={styles.topLinkWrapper}>
               <Link
-                to={`/experiments`}
+                to={`/work`}
                 className={
-                  location.pathname === '/experiments'
+                  location.pathname === '/work' || location.pathname === '/experiments'
                     ? styles.topLinksCurr
                     : styles.topLinksLink
                 }
               >
-                Experiments
-              </Link>
-            </div>
-            <div className={styles.topLinkWrapper}>
-              <Link
-                to={`/cv`}
-                className={
-                  location.pathname === '/cv'
-                    ? styles.topLinksCurr
-                    : styles.topLinksLink
-                }
-              >
-                CV
+                Work
               </Link>
             </div>
           </div>
           <div className={styles.botLinks}>
             <div className={styles.projects}>
-              <p>PROJECTS</p>
+              <p className={styles.groupLabel}>Selected Work</p>
               <div className={styles.innerLinks}>
-                <a href="https://city-zen.netlify.app/" target={'_blank'}>
-                  City Zen
-                </a>
-                <a href="https://artico-app-js.netlify.app/" target={'_blank'}>
-                  Artico
-                </a>
-                <a href="https://rentvsbuycalc-js.netlify.app/" target={'_blank'}>
-                  Rent vs. Buy
-                </a>
-                {/* <a
-                  href="https://threejs-tshirt-ai.netlify.app/"
-                  target={'_blank'}
-                >
-                  3D t-shirt
-                </a>
-                <a href="https://threejs-island.netlify.app/" target={'_blank'}>
-                  3D Island
-                </a> */}
-                <a href="https://waste-not-js.netlify.app/" target={'_blank'}>
-                  Waste Not
-                </a>
+                <span>Product Hunter</span>
+                <span>Settle</span>
+                <span>Redgate Monitor</span>
+                <span>Data Platform</span>
               </div>
             </div>
           </div>
           <div className={styles.botLinks}>
             <div className={styles.projects}>
-              <p>CONTACT</p>
+              <p className={styles.groupLabel}>Connect</p>
               <div className={styles.innerLinks}>
                 <a
                   href="https://www.linkedin.com/in/jay-spencer-55675792/"
@@ -156,7 +134,7 @@ function NavBar() {
                     (window.location = 'mailto:jay_sparks@icloud.com')
                   }
                 >
-                  E-mail
+                  Email
                 </button>
               </div>
             </div>
