@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { useTexture } from '@react-three/drei';
 import * as THREE from 'three';
 
+const DARK_OPACITY_MULTIPLIER = 5;
+
 const CLOUD_TEXTURES = [
   '/textures/clouds/horizon-bank.png',
   '/textures/clouds/cumulus-formation.png',
@@ -29,9 +31,9 @@ const CLOUD_PLANES = [
     size: [198, 76],
     rotationZ: -0.018,
     lightColor: '#e8e9e8',
-    darkColor: '#4d5965',
+    darkColor: '#33485c',
     lightOpacity: 0.6,
-    darkOpacity: 0.18,
+    darkOpacity: 0.08,
     renderOrder: 1,
   },
   {
@@ -195,6 +197,10 @@ const CLOUD_PLANES = [
 function CloudPlane({ cloud, textures, isDark }) {
   const [width, height] = cloud.size;
 
+  const opacity = isDark
+    ? Math.min(cloud.darkOpacity * DARK_OPACITY_MULTIPLIER, 0.55)
+    : cloud.lightOpacity;
+
   return (
     <mesh
       name={cloud.name}
@@ -204,10 +210,11 @@ function CloudPlane({ cloud, textures, isDark }) {
       renderOrder={cloud.renderOrder}
     >
       <planeGeometry args={[Math.abs(width), height]} />
+
       <meshBasicMaterial
         map={textures[cloud.texture]}
         color={isDark ? cloud.darkColor : cloud.lightColor}
-        opacity={isDark ? cloud.darkOpacity : cloud.lightOpacity}
+        opacity={opacity}
         transparent
         depthWrite={false}
         side={THREE.DoubleSide}

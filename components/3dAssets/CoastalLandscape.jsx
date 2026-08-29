@@ -2,12 +2,13 @@ import { useMemo } from 'react';
 import * as THREE from 'three';
 import { useGLTF } from '@react-three/drei';
 
+
 const LANDSCAPE_LAYERS = {
   background: [
     {
       name: 'hero-mountain-background',
       url: '/models/Mountains/hero_mountain.glb',
-      position: [-240, -6.5, -390],
+      position: [-300, -8, -490],
       rotationY: 0.1 + Math.PI / 12 + (Math.PI / 36) * 2,
       targetWidth: 255,
       lightTint: '#bcc6c5',
@@ -18,8 +19,8 @@ const LANDSCAPE_LAYERS = {
     {
       name: 'hero-mountain-2',
       url: '/models/Mountains/hero_mountain.glb',
-      position: [-520, -10, -570],
-      rotationY: 0.1 + Math.PI / 12 + (Math.PI / 36) * 2,
+      position: [-580, -20, -700],
+      rotationY: 0.1 + Math.PI / 12 + Math.PI / 18 + Math.PI,
       targetWidth: 510,
       lightTint: '#c6cecd',
       darkTint: '#465967',
@@ -31,7 +32,7 @@ const LANDSCAPE_LAYERS = {
     {
       name: 'mountain-range-midground',
       url: '/models/Mountains/mountain_range_01.glb',
-      position: [-170, -6.5, -395],
+      position: [-230, -6, -495],
       rotationY:
         Math.PI / 2 - 0.16 + (Math.PI / 9) * 2 + Math.PI / 12 + Math.PI / 36,
       targetWidth: 150,
@@ -45,17 +46,12 @@ const LANDSCAPE_LAYERS = {
     {
       name: 'harbour-and-beacon',
       url: '/models/Mountains/harbor_and_beacon_ver2.0.glb',
-      position: [-130, -1.5, -270],
-      rotationY:
-        Math.PI * 1.5 +
-        0.1 -
-        Math.PI / 9 +
-        Math.PI / 12 +
-        (Math.PI / 36) * 2,
+      position: [-190, -1.6, -400],
+      rotationY: Math.PI + 45,
       targetWidth: 55,
       lightTint: '#e0d8c8',
       darkTint: '#4a5056',
-      lightenAmount: 0.3,
+      lightenAmount: 0.05,
       darkLightenAmount: 0.16,
     },
   ],
@@ -152,53 +148,95 @@ export function BoatLights({ isDark }) {
 
   return (
     <group name="boat-lights">
-      <mesh position={[-0.35, 1.05, 0]}>
-        <sphereGeometry args={[0.11, 8, 8]} />
-        <meshBasicMaterial color="#ffc06a" toneMapped={false} />
-      </mesh>
-      <mesh position={[0.35, 1.35, 0]}>
-        <sphereGeometry args={[0.09, 8, 8]} />
-        <meshBasicMaterial color="#ffc06a" toneMapped={false} />
-      </mesh>
-      <mesh position={[0, 1.8, 0]}>
-        <sphereGeometry args={[0.07, 8, 8]} />
-        <meshBasicMaterial color="#ffb85e" toneMapped={false} />
-      </mesh>
+
+      {/* 1. MAIN CABIN — warm illumination */}
       <pointLight
-        color="#ffad55"
-        intensity={0.9}
-        distance={14}
+        position={[0.23, 1.6, -0.7]}
+        color="#ffb45e"
+        intensity={3.2}
+        distance={3}
         decay={2}
-        position={[0, 1.2, 0]}
       />
+
+      {/* 2. COCKPIT / AFT — softer warm illumination */}
+      <pointLight
+        position={[0, 1.6, -1.7]}
+        color="#ffc477"
+        intensity={2}
+        distance={2.3}
+        decay={2}
+      />
+
+      {/* 3. MASTHEAD — visible white light */}
+      <mesh position={[0.2, 7.75, 0.44]}>
+        <sphereGeometry args={[0.035, 8, 8]} />
+        <meshBasicMaterial
+          color="#fff4dc"
+          toneMapped={false}
+        />
+      </mesh>
+
+      {/* Very small illumination around masthead */}
+      <pointLight
+        position={[0.23, 7.8, 0.45]}
+        color="#fff1d0"
+        intensity={0.8}
+        distance={1.5}
+        decay={2}
+      />
+
+
+
     </group>
   );
 }
 
+
 function HarbourLights() {
   const lights = [
-    [-151, 0.35, -264],
-    [-145, 0.55, -267],
-    [-137, 0.4, -269],
-    [-129, 0.65, -271],
-    [-120, 0.38, -274],
-    [-113, 0.5, -276],
+    // x, y, z, size, brightness
+    [-153, 0.35, -263, 0.10, 0.55],
+    [-150, 0.65, -265, 0.13, 0.75],
+    [-147, 0.40, -267, 0.08, 0.45],
+
+    [-143, 0.85, -266, 0.16, 1.0],
+    [-140, 0.45, -269, 0.10, 0.60],
+    [-136, 1.10, -268, 0.14, 0.85],
+    [-133, 0.55, -271, 0.09, 0.50],
+
+    [-129, 0.75, -270, 0.18, 1.0],
+    [-125, 0.38, -273, 0.08, 0.45],
+    [-121, 0.90, -272, 0.12, 0.70],
+    [-117, 0.42, -275, 0.09, 0.50],
+
+    // More isolated lights towards edge
+    [-111, 0.35, -276, 0.07, 0.35],
+    [-105, 0.30, -277, 0.06, 0.30],
   ];
 
   return (
-    <group name="harbour-lights">
-      {lights.map((position, index) => (
-        <mesh key={position.join('-')} position={position}>
-          <sphereGeometry args={[index === 3 ? 0.2 : 0.14, 8, 8]} />
-          <meshBasicMaterial color="#ffb45f" toneMapped={false} />
-        </mesh>
+    <group name="harbour-lights" position={[0, 4, 0]}>
+      {lights.map(([x, y, z, size, brightness], index) => (
+        <group key={index}>
+          <mesh position={[x, y, z]}>
+            <sphereGeometry args={[size, 8, 8]} />
+            <meshBasicMaterial
+              color="#ffb45f"
+              transparent
+              opacity={brightness}
+              toneMapped={false}
+            />
+          </mesh>
+        </group>
       ))}
+
+      {/* Subtle warm illumination over the main settlement */}
       <pointLight
-        color="#ffad55"
-        intensity={0.6}
-        distance={28}
+        color="#ff9f45"
+        intensity={0.8}
+        distance={32}
         decay={2}
-        position={[-132, 2, -270]}
+        position={[-134, 3, -269]}
       />
     </group>
   );
