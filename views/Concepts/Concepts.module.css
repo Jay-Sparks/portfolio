@@ -1,22 +1,20 @@
-.Built {
+.Concepts {
   width: 100%;
   min-height: 100vh;
   background-color: var(--background-color);
 }
 
-.builtContent {
+.conceptsContent {
   width: 100%;
   padding: 6rem clamp(2rem, 5vw, 5rem) 5rem;
 }
 
-.conceptsTeaser {
-  max-width: 40rem;
-  margin-top: 6rem;
-  padding-top: 2.5rem;
-  border-top: 1px solid rgba(140, 140, 140, 0.22);
+.heading {
+  max-width: 46rem;
+  margin-bottom: 3rem;
 }
 
-.conceptsTeaser p {
+.heading p {
   margin: 0;
   color: var(--primary-text-color);
   font-size: 0.65rem;
@@ -25,42 +23,32 @@
   text-transform: uppercase;
 }
 
-.conceptsTeaser h2 {
+.heading h1 {
   position: static;
   width: auto;
-  margin: 0.55rem 0 0.75rem;
+  margin: 0.7rem 0 1rem;
   color: var(--secondary-text-color);
   background: none;
   -webkit-background-clip: initial;
   -webkit-text-fill-color: currentColor;
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-size: clamp(2.75rem, 5vw, 4.5rem);
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.05em;
 }
 
-.conceptsTeaser span {
-  display: block;
+.heading span {
   color: var(--primary-text-color);
   font-size: 1rem;
   line-height: 1.5;
 }
 
-.conceptsTeaser a {
-  display: inline-block;
-  margin-top: 1.25rem;
-  color: var(--secondary-text-color);
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-underline-offset: 0.2rem;
-}
-
 @media (max-width: 600px) {
-  .Built {
+  .Concepts {
     min-height: 100svh;
   }
 
-  .builtContent {
+  .conceptsContent {
     padding: 5rem 1.25rem 3rem;
   }
 }

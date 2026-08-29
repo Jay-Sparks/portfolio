@@ -92,18 +92,6 @@ function NavBar() {
             </div>
             <div className={styles.topLinkWrapper}>
               <Link
-                to={`/work`}
-                className={
-                  location.pathname === '/work' || location.pathname === '/experiments'
-                    ? styles.topLinksCurr
-                    : styles.topLinksLink
-                }
-              >
-                Built
-              </Link>
-            </div>
-            {/* <div className={styles.topLinkWrapper}>
-              <Link
                 to={`/built`}
                 className={
                   location.pathname === '/built'
@@ -113,7 +101,19 @@ function NavBar() {
               >
                 Built
               </Link>
-            </div> */}
+            </div>
+            <div className={styles.topLinkWrapper}>
+              <Link
+                to={`/concepts`}
+                className={
+                  location.pathname === '/concepts'
+                    ? styles.topLinksCurr
+                    : styles.topLinksLink
+                }
+              >
+                Concepts
+              </Link>
+            </div>
           </div>
           <div className={styles.botLinks}>
             <div className={styles.projects}>

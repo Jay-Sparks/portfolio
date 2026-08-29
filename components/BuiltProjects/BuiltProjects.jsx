@@ -1,5 +1,5 @@
 import items from './builtData';
-import styles from './SelectedWork.module.css';
+import styles from './BuiltProjects.module.css';
 
 function BuiltItem({ item, index }) {
   return (
@@ -34,7 +34,7 @@ function BuiltItem({ item, index }) {
   );
 }
 
-export default function Built() {
+export default function BuiltProjects() {
   return (
     <section className={styles.section}>
       <div className={styles.heading}>
@@ -53,4 +53,3 @@ export default function Built() {
     </section>
   );
 }
-

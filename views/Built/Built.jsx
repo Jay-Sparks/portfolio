@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Menu from '../../components/Menu/Menu';
 import Toggle from '../../components/Toggle/Toggle';
-import Slideshow from '../../components/Slideshow/Slideshow';
+import BuiltProjects from '../../components/BuiltProjects/BuiltProjects';
 import styles from './Built.module.css';
 
 export default function Built({ isDark, setIsDark, isMenu, setIsMenu }) {
@@ -18,15 +19,16 @@ export default function Built({ isDark, setIsDark, isMenu, setIsMenu }) {
           handleChange={() => setIsDark(!isDark)}
         />
         <main className={styles.builtContent}>
-          <header className={styles.heading}>
-            <p>Builder credibility</p>
-            <h1>Things I&apos;ve Built</h1>
+          <BuiltProjects />
+          <section className={styles.conceptsTeaser}>
+            <p>Further exploration</p>
+            <h2>Concepts</h2>
             <span>
-              Products, prototypes and experiments I&apos;ve designed and built
-              hands-on.
+              Prototypes, interactive tools and smaller builds created through
+              hands-on exploration.
             </span>
-          </header>
-          <Slideshow />
+            <Link to="/concepts">Explore concepts →</Link>
+          </section>
         </main>
       </div>
     </>

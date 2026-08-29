@@ -47,7 +47,7 @@
   grid-template-areas: "copy visual";
   gap: clamp(2rem, 5vw, 5rem);
   min-width: 0;
-  padding: 2.25rem 0;
+  padding: 1.875rem 0;
   border-bottom: 1px solid rgba(140, 140, 140, 0.28);
   color: var(--secondary-text-color);
   text-decoration: none;
@@ -57,7 +57,7 @@
   grid-template-columns: minmax(0, 1.3fr) minmax(20rem, 0.8fr);
   grid-template-areas: "visual copy";
   gap: clamp(2.5rem, 5vw, 5.5rem);
-  padding: 2rem 0 3rem;
+  padding: 1.75rem 0 2.5rem;
 }
 
 .visual {
@@ -130,14 +130,14 @@
 .positioning {
   max-width: 34rem;
   color: var(--secondary-text-color);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   line-height: 1.55;
 }
 
 .evidence {
   margin-top: 1.25rem;
   color: var(--secondary-text-color);
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
@@ -153,7 +153,7 @@
   border: 1px solid rgba(140, 140, 140, 0.28);
   border-radius: 999px;
   color: var(--primary-text-color);
-  font-size: 0.7rem;
+  font-size: 0.78rem;
 }
 
 .caseStudyStatus {
@@ -168,7 +168,7 @@
 .cta {
   margin-top: 1.25rem;
   color: var(--secondary-text-color);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 0.2rem;

@@ -12,8 +12,8 @@ export default [
       "Decision Engine",
       "Product Design",
     ],
-    image: "/images/settle-hero.jpg",
-    url: "https://settle-demo.netlify.app",
+    image: '/images/settle-hero.png',
+    url: "https://settle-public.netlify.app",
     cta: "Try the demo",
   },
   {
@@ -23,7 +23,7 @@ export default [
     evidence:
       "My first end-to-end consumer product, taking an idea from concept to the App Store.",
     categories: ["Founder", "iOS", "Product Strategy"],
-    image: "/images/tipsta.jpg",
+    image: "/images/tipsta-hero.png",
     url: "https://tipsta.netlify.app",
     cta: "View project",
   },
@@ -34,7 +34,7 @@ export default [
     evidence:
       "Completed and modernised as a standalone production-ready web experience with live multiplayer.",
     categories: ["3D", "Multiplayer", "React Three Fiber"],
-    image: "/images/cityzen.jpg",
+    image: "/images/city-zen-hero.png",
     url: "https://cityzen-boardgame.netlify.app",
     cta: "Play City Zen",
   },
@@ -45,7 +45,7 @@ export default [
     evidence:
       "A live financial modelling tool built around transparency rather than simplistic affordability metrics.",
     categories: ["Financial Modelling", "React", "Interactive Tool"],
-    image: "/images/rentvsbuy.jpg",
+    image: "/images/rent-vs-buy-hero.png",
     url: "https://rent-vs-buy-calc.netlify.app",
     cta: "Use the calculator",
   },
