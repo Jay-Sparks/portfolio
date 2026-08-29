@@ -3,6 +3,61 @@
   height: 100svh;
   width: 100%;
   overflow: hidden;
+  background-color: #fff;
+}
+
+.sceneLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 420ms ease-out;
+}
+
+.sceneLayerReady {
+  opacity: 1;
+}
+
+.sceneLoader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: rgba(20, 28, 34, 0.72);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 240ms ease-out;
+}
+
+.sceneLoaderHidden {
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 240ms ease-out,
+    visibility 0s linear 240ms;
+}
+
+.loadingMark {
+  width: 1.7rem;
+  height: 1px;
+  overflow: hidden;
+  background-color: rgba(20, 28, 34, 0.2);
+}
+
+.loadingMark::after {
+  display: block;
+  width: 45%;
+  height: 100%;
+  background-color: var(--accent-color);
+  content: '';
 }
 
 .Experience Canvas{
@@ -31,6 +86,14 @@
   pointer-events: none;
   text-align: left;
   text-shadow: 0 2px 24px rgba(7, 18, 28, 0.38);
+  transition:
+    color 420ms ease-out,
+    text-shadow 420ms ease-out;
+}
+
+.heroContentLoading {
+  color: #172027;
+  text-shadow: none;
 }
 
 .heroName {
@@ -150,5 +213,14 @@
   .scrollDowns{
     transform:translateX(-50%);
     left: 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sceneLayer,
+  .sceneLoader,
+  .sceneLoaderHidden,
+  .heroContent {
+    transition: none;
   }
 }

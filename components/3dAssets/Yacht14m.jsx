@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber';
 import { useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 
-const MODEL_URL = '/models/boats/yacht_14m.glb';
+const MODEL_URL = '/models/boats/yacht_14m_optimized.glb';
 const TARGET_LENGTH = 6;
 
 export default function Yacht14m(props) {

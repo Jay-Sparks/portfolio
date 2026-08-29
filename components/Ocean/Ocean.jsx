@@ -80,3 +80,5 @@ export default function Ocean({ isDark }) {
     </Suspense>
   )
 }
+
+useLoader.preload(THREE.TextureLoader, '/waternormals.jpg')

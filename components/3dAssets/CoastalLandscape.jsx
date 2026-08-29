@@ -7,7 +7,7 @@ const LANDSCAPE_LAYERS = {
   background: [
     {
       name: 'hero-mountain-background',
-      url: '/models/Mountains/hero_mountain.glb',
+      url: '/models/Mountains/hero_mountain_optimized.glb',
       position: [-300, -8, -490],
       rotationY: 0.1 + Math.PI / 12 + (Math.PI / 36) * 2,
       targetWidth: 255,
@@ -18,7 +18,7 @@ const LANDSCAPE_LAYERS = {
     },
     {
       name: 'hero-mountain-2',
-      url: '/models/Mountains/hero_mountain.glb',
+      url: '/models/Mountains/hero_mountain_optimized.glb',
       position: [-580, -20, -700],
       rotationY: 0.1 + Math.PI / 12 + Math.PI / 18 + Math.PI,
       targetWidth: 510,
@@ -31,7 +31,7 @@ const LANDSCAPE_LAYERS = {
   midground: [
     {
       name: 'mountain-range-midground',
-      url: '/models/Mountains/mountain_range_01.glb',
+      url: '/models/Mountains/mountain_range_01_optimized.glb',
       position: [-230, -6, -495],
       rotationY:
         Math.PI / 2 - 0.16 + (Math.PI / 9) * 2 + Math.PI / 12 + Math.PI / 36,
@@ -45,7 +45,7 @@ const LANDSCAPE_LAYERS = {
   settlement: [
     {
       name: 'harbour-and-beacon',
-      url: '/models/Mountains/harbor_and_beacon_ver2.0.glb',
+      url: '/models/Mountains/harbor_and_beacon_ver2.0_optimized.glb',
       position: [-190, -1.6, -400],
       rotationY: Math.PI + 45,
       targetWidth: 55,
@@ -265,6 +265,6 @@ export default function CoastalLandscape({ isDark }) {
   );
 }
 
-useGLTF.preload('/models/Mountains/hero_mountain.glb');
-useGLTF.preload('/models/Mountains/mountain_range_01.glb');
-useGLTF.preload('/models/Mountains/harbor_and_beacon_ver2.0.glb');
+useGLTF.preload('/models/Mountains/hero_mountain_optimized.glb');
+useGLTF.preload('/models/Mountains/mountain_range_01_optimized.glb');
+useGLTF.preload('/models/Mountains/harbor_and_beacon_ver2.0_optimized.glb');

@@ -1,9 +1,16 @@
-import React, { Suspense, useEffect, useRef, useState } from 'react';
+import React, {
+  Suspense,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import * as THREE from 'three';
 import {
   OrbitControls,
   Sky,
   Float,
+  useProgress,
 } from '@react-three/drei';
 import { EffectComposer, Vignette } from '@react-three/postprocessing';
 import { Canvas, useFrame } from '@react-three/fiber';
@@ -32,6 +39,50 @@ const INFINITY_ROUTE = {
   bobHeight: 0.12,
   bobSpeed: 0.7,
 };
+
+class SceneErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error) {
+    this.props.onError(error);
+  }
+
+  render() {
+    return this.state.hasError ? null : this.props.children;
+  }
+}
+
+function SceneReady({ onReady }) {
+  useEffect(() => {
+    onReady();
+  }, [onReady]);
+
+  return null;
+}
+
+function SceneLoadingIndicator({ hidden }) {
+  const { active, progress } = useProgress();
+  const showProgress = active && progress > 0 && progress < 100;
+
+  return (
+    <div
+      className={`${styles.sceneLoader} ${hidden ? styles.sceneLoaderHidden : ''}`}
+      role="status"
+      aria-live="polite"
+      aria-label="Loading the three-dimensional scene"
+    >
+      <span className={styles.loadingMark} aria-hidden="true" />
+      <span>Loading scene{showProgress ? ` · ${Math.round(progress)}%` : ''}</span>
+    </div>
+  );
+}
 
 function MovingInfinity({ isDark }) {
   const vessel = useRef();
@@ -86,6 +137,10 @@ function MovingInfinity({ isDark }) {
 
 function Experience({ isDark }) {
   const [sunPosition, setSunPosition] = useState([100, 10, -250]);
+  const [sceneStatus, setSceneStatus] = useState('loading');
+
+  const handleSceneReady = useCallback(() => setSceneStatus('ready'), []);
+  const handleSceneError = useCallback(() => setSceneStatus('error'), []);
 
   useEffect(() => {
     if (isDark) setSunPosition([-120, 85, -160]);
@@ -119,9 +174,16 @@ function Experience({ isDark }) {
 
   return (
     <div className={styles.Experience}>
-      <Suspense fallback={null}>
-        <Canvas camera={{ fov: 60, position: [0, 6, 20] }}>
-          <EffectComposer disableNormalPass>
+      <div
+        className={`${styles.sceneLayer} ${
+          sceneStatus === 'ready' ? styles.sceneLayerReady : ''
+        }`}
+        aria-hidden={sceneStatus !== 'ready'}
+      >
+        <SceneErrorBoundary onError={handleSceneError}>
+          <Canvas camera={{ fov: 60, position: [0, 6, 20] }}>
+            <Suspense fallback={null}>
+              <EffectComposer disableNormalPass>
             <Vignette darkness={0.5} />
             <fog
               attach="fog"
@@ -196,11 +258,19 @@ function Experience({ isDark }) {
 
             <CoastalLandscape isDark={isDark} />
 
-            <Ocean isDark={isDark} />
-          </EffectComposer>
-        </Canvas>
-      </Suspense>
-      <header className={styles.heroContent}>
+                <Ocean isDark={isDark} />
+              </EffectComposer>
+              <SceneReady onReady={handleSceneReady} />
+            </Suspense>
+          </Canvas>
+        </SceneErrorBoundary>
+      </div>
+      <SceneLoadingIndicator hidden={sceneStatus !== 'loading'} />
+      <header
+        className={`${styles.heroContent} ${
+          sceneStatus !== 'ready' ? styles.heroContentLoading : ''
+        }`}
+      >
         <p className={styles.heroName}>{HERO_CONTENT.name}</p>
         <span className={styles.heroAccent} />
         <h1 className={styles.heroHeadline}>{HERO_CONTENT.headline}</h1>
