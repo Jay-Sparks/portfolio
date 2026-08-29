@@ -33,8 +33,8 @@ const HERO_CONTENT = {
 };
 
 const INFINITY_ROUTE = {
-  start: [-180, -0.6, -450],
-  end: [190, -0.6, -320],
+  start: [-180, -0.6, -440],
+  end: [190, -0.6, -20],
   duration: 90,
   bobHeight: 0.12,
   bobSpeed: 0.7,
