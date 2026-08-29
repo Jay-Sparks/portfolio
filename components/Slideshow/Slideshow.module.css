@@ -31,12 +31,20 @@
   padding: 1.25rem;
 }
 
-.blurb {
+.category {
+  margin: 0;
   color: var(--primary-text-color);
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.blurb {
+  margin: -0.3rem 0 0.8rem;
+  color: var(--primary-text-color);
+  font-size: 0.72rem;
+  line-height: 1.4;
 }
 
 .card h3 {

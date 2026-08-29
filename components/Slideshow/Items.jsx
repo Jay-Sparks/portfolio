@@ -9,6 +9,7 @@ import photoGallery from '../../src/assets/photoGallery.png'
 export default [
     {
       image: cityZen,
+      category: 'INTERACTIVE',
       height: 300,
       blurb: "3D multiplayer web app",
       title: "City Zen",
@@ -19,6 +20,7 @@ export default [
     },
     {
       image: ArticoImg,
+      category: 'WEB APP',
       height: 300,
       blurb: "Full stack JS web app",
       title: "Artico",
@@ -30,15 +32,17 @@ export default [
     {
       image: null,
       height: 300,
-      blurb: 'Project archive',
-      title: 'Rent vs Buy',
-      description: null,
+      category: 'PRODUCT',
+      blurb: 'Consumer financial decision tool',
+      title: 'Rent vs Buy Calculator',
+      description: 'A consumer financial decision tool I designed and built to help people compare the estimated financial position of buying versus renting over a chosen time horizon.',
       tools: null,
-      github: [],
-      url: 'https://rentvsbuycalc-js.netlify.app/'
+      github: ['https://github.com/Jay-Sparks/rent-vs-buy-calculator'],
+      url: 'https://rent-vs-buy-calc.netlify.app/'
     },
     {
       image: WasteNotImg,
+      category: 'WEB APP',
       height: 300,
       blurb: "Authenticated web app",
       title: "Waste Not",
@@ -49,6 +53,7 @@ export default [
     },
     {
       image: photoGallery,
+      category: 'EXPERIMENT',
       height: 300,
       blurb: 'Full-stack gallery experiment',
       title: 'T3 Photo Gallery',
@@ -59,6 +64,7 @@ export default [
     },
     {
       image: Tshirt,
+      category: 'INTERACTIVE',
       height: 300,
       blurb: "Interactive 3D AI app",
       title: "mAI t-shirts",
@@ -69,6 +75,7 @@ export default [
     },
     {
       image: island,
+      category: '3D',
       height: 300,
       blurb: "Single page 3D app",
       title: "Flying Island",

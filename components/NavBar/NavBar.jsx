@@ -1,9 +1,7 @@
-import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 import styles from '../NavBar/NavBar.module.css';
 
-import { animated, useSpring } from '@react-spring/web';
 import NavAnimation from '../NavAnimation/NavAnimation';
 
 function NavBar() {
@@ -104,16 +102,17 @@ function NavBar() {
                 Work
               </Link>
             </div>
-          </div>
-          <div className={styles.botLinks}>
-            <div className={styles.projects}>
-              <p className={styles.groupLabel}>Selected Work</p>
-              <div className={styles.innerLinks}>
-                <span>Product Hunter</span>
-                <span>Settle</span>
-                <span>Redgate Monitor</span>
-                <span>Data Platform</span>
-              </div>
+            <div className={styles.topLinkWrapper}>
+              <Link
+                to={`/built`}
+                className={
+                  location.pathname === '/built'
+                    ? styles.topLinksCurr
+                    : styles.topLinksLink
+                }
+              >
+                Built
+              </Link>
             </div>
           </div>
           <div className={styles.botLinks}>
