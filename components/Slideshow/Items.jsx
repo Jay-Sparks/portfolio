@@ -1,22 +1,21 @@
 import ArticoImg from '../../src/assets/Artico.png'
+import DigitalPrivateWealthImg from '../../src/assets/digitalPrivateWealth.jpg'
 import WasteNotImg from '../../src/assets/Waste-Not.png'
 import Tshirt from '../../src/assets/3dTshirt.png'
-import cityZen from '../../src/assets/cityZenGame.png'
-import island from '../../src/assets/3dIsland.png'
 import photoGallery from '../../src/assets/photoGallery.png'
 
 
 export default [
     {
-      image: cityZen,
-      category: 'INTERACTIVE',
+      image: DigitalPrivateWealthImg,
+      category: 'PRODUCT',
       height: 300,
-      blurb: "3D multiplayer web app",
-      title: "City Zen",
-      description: "A full-stack multiplayer web-app built as part of a collaboration over 3 weeks. I created 3d assets using blender and took on a lead developer role, guiding the team through scrum ceremonies whilst building a significant portion of the front-end experience.",
-      tools: "React.js, React-Three-fibre, Drei, React-three-rapier, Three.js, MongoDB, Express & Blender",
-      github: ['https://github.com/saeidsaeity/BoardGame-FrontEnd', 'https://github.com/FrinkoTay/GameBoardBackEnd' ],
-      url: 'https://city-zen.netlify.app/'
+      blurb: 'Digital private wealth onboarding experience',
+      title: 'Digital Private Wealth',
+      description: 'A private wealth prototype that takes customers from onboarding and simulated identity verification through an adaptive fact-find, explainable financial profile, targeted support and adviser pathway.',
+      tools: 'Expo, React Native, TypeScript, Expo Router, Zustand, Zod, Jest & React Native Testing Library',
+      github: ['https://github.com/Jay-Sparks/digital-private-wealth'],
+      url: 'https://digital-private-wealth.netlify.app/'
     },
     {
       image: ArticoImg,
@@ -28,17 +27,6 @@ export default [
       tools: "Node, express, postregsql, jest, supertest, TDD, CI/CD; and React, Javascript, axios & css",
       github: ['https://github.com/Jay-Sparks/Artico-fe'],
       url: 'https://artico-app-js.netlify.app/'
-    },
-    {
-      image: null,
-      height: 300,
-      category: 'PRODUCT',
-      blurb: 'Consumer financial decision tool',
-      title: 'Rent vs Buy Calculator',
-      description: 'A consumer financial decision tool I designed and built to help people compare the estimated financial position of buying versus renting over a chosen time horizon.',
-      tools: null,
-      github: ['https://github.com/Jay-Sparks/rent-vs-buy-calculator'],
-      url: 'https://rent-vs-buy-calc.netlify.app/'
     },
     {
       image: WasteNotImg,
@@ -72,16 +60,5 @@ export default [
       tools: "React, three.js, react-three-fiber, Drei, Express,openAI",
       github: ['https://github.com/Jay-Sparks/threejs_ai_tshirts'],
       url: 'https://threejs-tshirt-ai.netlify.app/'
-    },
-    {
-      image: island,
-      category: '3D',
-      height: 300,
-      blurb: "Single page 3D app",
-      title: "Flying Island",
-      description: "A R3F and three.js single page project built to learn and demonstrate 3D interactions, 3D asset imports and physics.",
-      tools: "React, three.js, react-three-fiber, Drei, Tailwind",
-      github: ['https://github.com/Jay-Sparks/threejs-island/tree/master' ],
-      url: 'https://threejs-island.netlify.app/'
     },
   ]
