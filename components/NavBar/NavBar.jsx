@@ -99,10 +99,10 @@ function NavBar() {
                     : styles.topLinksLink
                 }
               >
-                Work
+                Built
               </Link>
             </div>
-            <div className={styles.topLinkWrapper}>
+            {/* <div className={styles.topLinkWrapper}>
               <Link
                 to={`/built`}
                 className={
@@ -113,7 +113,7 @@ function NavBar() {
               >
                 Built
               </Link>
-            </div>
+            </div> */}
           </div>
           <div className={styles.botLinks}>
             <div className={styles.projects}>

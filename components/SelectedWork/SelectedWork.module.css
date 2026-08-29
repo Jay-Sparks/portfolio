@@ -62,15 +62,35 @@
 
 .visual {
   grid-area: visual;
+  position: relative;
+  overflow: hidden;
   display: flex;
   min-height: 13rem;
   aspect-ratio: 16 / 8.5;
   flex-direction: column;
   justify-content: space-between;
-  padding: 1.5rem;
+  padding: 0;
   border: 1px solid rgba(140, 140, 140, 0.2);
   background-color: #172027;
   color: #fff;
+}
+
+.visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.visual > span {
+  position: absolute;
+  left: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 2;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
 }
 
 .featured .visual {
@@ -81,13 +101,6 @@
 .visual span {
   font-size: 0.7rem;
   letter-spacing: 0.16em;
-}
-
-.visual strong {
-  color: rgba(255, 255, 255, 0.62);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
 }
 
 .copy {
@@ -150,6 +163,19 @@
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.02em;
+}
+
+.cta {
+  margin-top: 1.25rem;
+  color: var(--secondary-text-color);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+.cta:hover {
+  opacity: 0.65;
 }
 
 @media (max-width: 900px) {

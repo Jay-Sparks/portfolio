@@ -1,60 +1,56 @@
-import items from './selectedWorkData';
+import items from './builtData';
 import styles from './SelectedWork.module.css';
 
-function WorkItem({ item, index }) {
-  const content = (
-    <>
+function BuiltItem({ item, index }) {
+  return (
+    <article className={`${styles.item} ${item.featured ? styles.featured : ''}`}>
       <div className={styles.copy}>
         <p className={styles.eyebrow}>
-          {item.featured ? 'Featured work' : 'Selected work'}
+          {item.featured ? 'Featured build' : 'Built'}
         </p>
+
         <h3>{item.name}</h3>
         <p className={styles.positioning}>{item.positioning}</p>
         <p className={styles.evidence}>{item.evidence}</p>
+
         <div className={styles.tags}>
-          {item.categories.map((category) => (
-            <span key={category}>{category}</span>
+          {item.categories.map((tag) => (
+            <span key={tag}>{tag}</span>
           ))}
         </div>
-        <span className={styles.caseStudyStatus}>Case study coming soon</span>
-      </div>
-      <div className={styles.visual}>
-        <span>{String(index + 1).padStart(2, '0')}</span>
-        <strong>Product imagery placeholder</strong>
-      </div>
-    </>
-  );
 
-  return item.caseStudyUrl ? (
-    <a
-      className={`${styles.item} ${item.featured ? styles.featured : ''}`}
-      href={item.caseStudyUrl}
-    >
-      {content}
-    </a>
-  ) : (
-    <article className={`${styles.item} ${item.featured ? styles.featured : ''}`}>
-      {content}
+        {item.url && (
+          <a className={styles.cta} href={item.url}>
+            {item.cta}
+          </a>
+        )}
+      </div>
+
+      <div className={styles.visual}>
+        <img src={item.image} alt={item.name} />
+        <span>{String(index + 1).padStart(2, '0')}</span>
+      </div>
     </article>
   );
 }
 
-export default function SelectedWork() {
+export default function Built() {
   return (
     <section className={styles.section}>
       <div className={styles.heading}>
-        <p className={styles.kicker}>Product credibility</p>
-        <h1>Selected Work</h1>
+        <h1>Built</h1>
         <p>
-          Product leadership across customer experiences, SaaS and data
-          products. Detailed case studies are being prepared.
+          Products I've designed and built from fintech apps and interactive tools
+          to multiplayer games.
         </p>
       </div>
+
       <div className={styles.grid}>
         {items.map((item, index) => (
-          <WorkItem item={item} index={index} key={item.name} />
+          <BuiltItem key={item.name} item={item} index={index} />
         ))}
       </div>
     </section>
   );
 }
+

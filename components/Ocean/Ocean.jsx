@@ -45,11 +45,11 @@ distortionScale: isDark
   ? 2.1
   : 3.2,
 
-      sunDirection: new THREE.Vector3(
-        115,
-        8,
-        -285
-      ).normalize(),
+      // sunDirection: new THREE.Vector3(
+      //   115,
+      //   8,
+      //   -285
+      // ).normalize(),
 
       fog: true,
       format: gl.encoding,
