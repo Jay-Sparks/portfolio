@@ -141,9 +141,11 @@ function SceneCameraControls() {
   const isPortraitMobile = size.width <= 600 && size.height > size.width;
   const cameraTargetX = isPortraitMobile ? -3.5 : 0;
   const cameraDistance = isPortraitMobile ? Math.sqrt(5653.25) : 20;
+  const minPolarAngle = isPortraitMobile ? 1.514 : 1.62;
+  const maxPolarAngle = isPortraitMobile ? 1.614 : 1.72;
 
   useLayoutEffect(() => {
-    camera.position.set(...(isPortraitMobile ? [0, 4, 75] : [0, 6, 20]));
+    camera.position.set(...(isPortraitMobile ? [0, 12, 75] : [0, 6, 20]));
     camera.lookAt(cameraTargetX, 8, 0);
     camera.updateProjectionMatrix();
   }, [camera, cameraTargetX, isPortraitMobile]);
@@ -156,8 +158,8 @@ function SceneCameraControls() {
       enableRotate={true}
       minAzimuthAngle={-0.16}
       maxAzimuthAngle={0.16}
-      minPolarAngle={1.62}
-      maxPolarAngle={1.72}
+      minPolarAngle={minPolarAngle}
+      maxPolarAngle={maxPolarAngle}
       enableDamping
       dampingFactor={0.04}
       rotateSpeed={0.22}
