@@ -2,6 +2,7 @@ import React, {
   Suspense,
   useCallback,
   useEffect,
+  useLayoutEffect,
   useRef,
   useState,
 } from 'react';
@@ -13,7 +14,7 @@ import {
   useProgress,
 } from '@react-three/drei';
 import { EffectComposer, Vignette } from '@react-three/postprocessing';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 
 import styles from './Experience.module.css';
 import Ocean from '../../components/Ocean/Ocean';
@@ -135,6 +136,37 @@ function MovingInfinity({ isDark }) {
   );
 }
 
+function SceneCameraControls() {
+  const { camera, size } = useThree();
+  const isPortraitMobile = size.width <= 600 && size.height > size.width;
+  const cameraTargetX = isPortraitMobile ? -3.5 : 0;
+  const cameraDistance = isPortraitMobile ? Math.sqrt(5653.25) : 20;
+
+  useLayoutEffect(() => {
+    camera.position.set(...(isPortraitMobile ? [0, 4, 75] : [0, 6, 20]));
+    camera.lookAt(cameraTargetX, 8, 0);
+    camera.updateProjectionMatrix();
+  }, [camera, cameraTargetX, isPortraitMobile]);
+
+  return (
+    <OrbitControls
+      target={[cameraTargetX, 8, 0]}
+      minDistance={cameraDistance}
+      maxDistance={cameraDistance}
+      enableRotate={true}
+      minAzimuthAngle={-0.16}
+      maxAzimuthAngle={0.16}
+      minPolarAngle={1.62}
+      maxPolarAngle={1.72}
+      enableDamping
+      dampingFactor={0.04}
+      rotateSpeed={0.22}
+      enableZoom={false}
+      enablePan={false}
+    />
+  );
+}
+
 function Experience({ isDark }) {
   const [sunPosition, setSunPosition] = useState([100, 10, -250]);
   const [sceneStatus, setSceneStatus] = useState('loading');
@@ -222,27 +254,13 @@ function Experience({ isDark }) {
               position={sunPosition}
               shadow-normalBias={0.04}
             />
-            <OrbitControls
-              target={[0, 8, 0]}
-              minDistance={20}
-              maxDistance={20}
-              enableRotate={true}
-              minAzimuthAngle={-0.16}
-              maxAzimuthAngle={0.16}
-              minPolarAngle={1.62}
-              maxPolarAngle={1.72}
-              enableDamping
-              dampingFactor={0.04}
-              rotateSpeed={0.22}
-              enableZoom={false}
-              enablePan={false}
-            />
+            <SceneCameraControls />
 
             <Float
-              speed={0.8} // Animation speed, defaults to 1
-              rotationIntensity={0} // XYZ rotation intensity, defaults to 1
-              floatIntensity={0.8} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
-              floatingRange={[-0.25, -0.05]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
+              speed={0.8}
+              rotationIntensity={0}
+              floatIntensity={0.8}
+              floatingRange={[-0.25, -0.05]}
             >
               <group
                 position={[15, -1.5, -10]}
