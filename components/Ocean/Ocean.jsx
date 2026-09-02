@@ -23,8 +23,8 @@ function OceanComponent({ isDark }) {
 
   const config = useMemo(
     () => ({
-      textureWidth: 512,
-      textureHeight: 200,
+      textureWidth: 1024,
+      textureHeight: 512,
       waterNormals,
 
 
